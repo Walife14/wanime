@@ -1,0 +1,32 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: rgb(224, 72, 72);
+}
+
+.brand {
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.login-signup {
+    display: flex;
+}
+
+.login-signup-item {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.login-signup-link {
+    text-decoration: none;
+    padding: 5px 20px;
+    border: 1px solid black;
+    transition: background 0.2s ease-in-out;
+}
+.login-signup-link:hover {
+    background: rgb(228, 109, 109);
+}
