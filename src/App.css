@@ -1,0 +1,13 @@
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.dark {
+    background: #777;
+    z-index: -1;
+    color: rgb(240, 240, 240);
+}
+a.dark {
+    color: rgb(240, 240, 240);
+}

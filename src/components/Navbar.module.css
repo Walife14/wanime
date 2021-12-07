@@ -6,7 +6,12 @@
     padding: 10px 50px;
     background: rgb(224, 72, 72);
 }
-
+.navbar.dark {
+    background: rgb(35, 35, 35);
+}
+.logo.dark {
+    color: rgb(240, 240, 240);
+}
 .brand {
     font-size: 32px;
     line-height: 36px;
@@ -26,6 +31,9 @@
     padding: 5px 20px;
     border: 1px solid black;
     transition: background 0.2s ease-in-out;
+}
+.login-signup-link.dark {
+    color: rgb(240, 240, 240);
 }
 .login-signup-link:hover {
     background: rgb(228, 109, 109);

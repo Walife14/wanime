@@ -1,6 +1,6 @@
 
 // styles
-import styles from './Thisweek.module.css'
+// import styles from './Thisweek.module.css'
 
 export default function ThisWeek() {
     return (
