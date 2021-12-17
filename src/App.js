@@ -16,6 +16,7 @@ import Theories from './pages/theories/Theories'
 import MyProfile from './pages/my-profile/MyProfile'
 import AddAnime from './pages/add-anime/AddAnime'
 import AnimeDirectory from './pages/anime-directory/AnimeDirectory'
+import Anime from './pages/anime/Anime'
 
 // styles
 import './App.css'
@@ -49,6 +50,9 @@ function App() {
             </Route>
             <Route path="/this-week">
               <ThisWeek />
+            </Route>
+            <Route path="/anime">
+              <Anime />
             </Route>
             <Route path="/add-anime">
               <AddAnime />

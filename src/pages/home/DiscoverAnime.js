@@ -22,19 +22,6 @@ export default function DiscoverAnime() {
         changeAnime()
     }, [changeAnime])
 
-
-
-    // const changeImg = () => {
-    //     if (animes) {
-    //         // grab the image for discover
-    //         const img = document.querySelector('#discover-img')
-    //         // get random integer based on the length of animes collection
-    //         const i = Math.floor(Math.random() * animes.length)
-    //         // add new src to the img
-    //         img.src = animes[i].thumbnail
-    //     }
-    // }
-
     return (
         <div className="discover-anime-container">
             <ul>
@@ -46,7 +33,6 @@ export default function DiscoverAnime() {
                 </li>
                 <li>
                     {animes && (
-                        // <img src={animes[0].thumbnail} id="discover-img" onClick={changeImg} alt="anime img" />
                         <img
                             id="discover-img"
                             src={discoveredAnime}
