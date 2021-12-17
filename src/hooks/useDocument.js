@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore"
+import { doc, onSnapshot } from "firebase/firestore"
 import { useEffect, useState, useRef } from "react"
 import { db } from "../firebase/config"
 
@@ -11,10 +11,18 @@ const [document, setDocument] = useState(null)
 
         const docRef = doc(db, c, q)
 
-        getDoc(docRef)
-            .then((doc) => {
-                setDocument({ ...doc.data(), id: doc.id })
-            })
+        // fetch update once
+        // getDoc(docRef)
+        //     .then((doc) => {
+        //         setDocument({ ...doc.data(), id: doc.id })
+        //     })
+
+        // fetch realtime updates
+        const unsub = onSnapshot(docRef, (snapshot) => {
+            setDocument({ ...snapshot.data(), id: snapshot.id  })
+        })
+
+        return () => unsub()
 
     }, [c, q])
 

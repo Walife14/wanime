@@ -5,7 +5,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import { auth, db } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
-import { collection, setDoc, doc } from "firebase/firestore"
+import { setDoc, doc } from "firebase/firestore"
 
 // TO ADD
 // create an isPending state
