@@ -51,7 +51,7 @@ function App() {
             <Route path="/this-week">
               <ThisWeek />
             </Route>
-            <Route path="/anime">
+            <Route path="/anime/:id">
               <Anime />
             </Route>
             <Route path="/add-anime">
