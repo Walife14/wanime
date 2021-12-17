@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useCollection } from '../../hooks/useCollection'
 
 // images
@@ -7,7 +8,7 @@ import option1 from '../../assets/demonslayer-img.webp'
 import './Thisweek.css'
 
 // To Do
-// - fix the image on the cards - they are streched
+// - fix the image on the cards - they are streched - perhaps add a small thumbnail option on document
 // - for the top 3 create a like system or such and allows us to track which anime are top 3
 // and put those in the top 3 list
 
@@ -34,17 +35,17 @@ export default function ThisWeek() {
                     </li>
                 </ul>
             </div>
-            <ul className="anime-list-container">
+            <div className="anime-list-container">
                 {animes && animes.map(anime => (
-                    <li className="anime-card" key={anime.id}>
+                    <Link className="anime-card" key={anime.id} to={`/anime/${anime.id}`}>
                         <img src={anime.thumbnail} alt={`${anime.title} thumbnail`} className="anime-card-img" />
                         <div className="anime-card-text-container">
                             <span>{anime.title}</span>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, iusto!</p>
                         </div>
-                    </li>
+                    </Link>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }

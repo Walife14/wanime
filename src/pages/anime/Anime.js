@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-// import { useCollection } from '../../hooks/useCollection'
+import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
 
 // styles
@@ -7,16 +7,27 @@ import './Anime.css'
 
 export default function Anime() {
     const { id } = useParams()
-    // const { documents: anime } = useCollection('animes')
     const { document: anime } = useDocument('animes', id)
-    
-    if (anime) {
-        console.log(anime)
+    const { user } = useAuthContext()
+
+    const handleLike = (e) => {
+
+        console.log(user.uid)
     }
 
     return (
-        <div>
-            {anime && <div>{anime.title}</div>}
+        <div className="anime-container">
+            <div className="anime-profile">
+                <div className="anime-profile-thumb">
+                    {anime &&
+                            <img className="anime-thumbnail" src={anime.thumbnail} alt={`${anime.title} thumbnail`} />
+                    }
+                    <span className="anime-thumbnail-like" alt="Anime like button" onClick={handleLike}></span> 
+                </div>
+                {anime &&
+                    <h2>{anime.title}</h2>
+                }
+            </div>
         </div>
     )
 }
