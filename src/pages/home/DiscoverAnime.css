@@ -1,0 +1,20 @@
+
+.discover-anime-container {
+    background: rgb(235, 154, 154);
+    height: 400px;
+}
+.discover-anime-container ul {
+    display: flex;
+    height: 100%;
+}
+.discover-anime-container ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+.discover-anime-container ul li p {
+    width: 80%;
+    text-align: center;
+}

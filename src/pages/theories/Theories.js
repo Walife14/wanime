@@ -8,6 +8,9 @@ import { doc, deleteDoc } from 'firebase/firestore'
 // components
 import TheoriesForm from './TheoriesForm'
 
+// styles
+
+
 export default function Theories() {
     const { user } = useAuthContext()
     const { documents: theories } = useCollection(

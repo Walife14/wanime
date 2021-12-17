@@ -1,0 +1,51 @@
+.this-week-container {
+}
+.top-3-container {
+}
+.top-3-list {
+    width: 60%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.top-3-option {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.top-anime-img {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+}
+.anime-list-container {
+    position: relative;
+}
+.anime-card {
+    position: relative;
+    background: rgb(231, 71, 71);
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    height: 150px;
+}
+.anime-card img {
+    width: 250px;
+}
+.anime-card-text-container {
+    padding: 10px;
+}
+.anime-card-text-container span {
+    font-weight: bold;
+    font-size: 22px;
+}
+.anime-card-see-more {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(182, 50, 50);
+}

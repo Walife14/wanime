@@ -14,6 +14,8 @@ import Login from './pages/login/Login'
 import ThisWeek from './pages/this-week/Thisweek'
 import Theories from './pages/theories/Theories'
 import MyProfile from './pages/my-profile/MyProfile'
+import AddAnime from './pages/add-anime/AddAnime'
+import AnimeDirectory from './pages/anime-directory/AnimeDirectory'
 
 // styles
 import './App.css'
@@ -47,6 +49,12 @@ function App() {
             </Route>
             <Route path="/this-week">
               <ThisWeek />
+            </Route>
+            <Route path="/add-anime">
+              <AddAnime />
+            </Route>
+            <Route path="/anime-directory">
+              <AnimeDirectory />
             </Route>
             <Route path="/theories">
               {user && <Theories />}

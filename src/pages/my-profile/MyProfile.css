@@ -1,5 +1,4 @@
 .profile-container {
-    background: yellowgreen;
     width: 75%;
     margin: 0 auto;
 }
@@ -8,8 +7,8 @@
     padding: 10px;
 }
 .profile-img {
-    min-height: 100px;
-    min-width: 100px;
+    height: 100px;
+    border-radius: 50%;
     background: red;
 }
 .profile-info {
@@ -21,13 +20,13 @@
     display: flex;
     justify-content: space-between;
 }
-.favourite-container {
+.favourite-container, .watchlist-container {
     width: 48%;
 }
-.favourite-text {
+.fav-watchlist-title {
     position: relative;
 }
-.favourite-text:after, .favourite-view-all:after {
+.fav-watchlist-title:after, .favourite-view-all:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -36,23 +35,19 @@
     width: 100%;
     background: linear-gradient(to right, #000, transparent);
 }
-.favourite-option-container {
+.fav-watchlist-option-container {
     display: flex;
     justify-content: space-around;
     margin: 5px 0;
 }
-.favourite-view-all {
+.view-all-option {
     position: relative;
 }
-.favourite-view-all:after {
+.view-all-option:after {
     top: 0;
 }
-.favourite-option {
+.fav-watchlist-option {
     height: 100px;
     width: 100px;
     background: pink;
-}
-.watchlist-container {
-    background: darkgreen;
-    width: 48%;
 }
