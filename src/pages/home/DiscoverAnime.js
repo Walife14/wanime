@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import { useState, useEffect, useCallback } from 'react'
 import { useCollection } from '../../hooks/useCollection'
 
 // styles
@@ -10,17 +9,31 @@ import './DiscoverAnime.css'
 
 export default function DiscoverAnime() {
     const { documents: animes } = useCollection('animes')
-    const [imgSrc, setImgSrc] = useState('')
-    
-    const changeImg = () => {
-        // grab the image for discover
-        const img = document.querySelector('#discover-img')
-        // get random integer based on the length of animes collection
-        const i = Math.floor(Math.random() * animes.length)
-        // add new src to the img
-        img.src = animes[i].thumbnail
+    const [discoveredAnime, setDiscoveredAnime] = useState('')
 
-    }
+    const changeAnime = useCallback(() => {
+        if (animes) {
+            const i = Math.floor(Math.random() * animes.length)
+            return setDiscoveredAnime(animes[i].thumbnail)
+        }
+    }, [animes])
+
+    useEffect(() => {
+        changeAnime()
+    }, [changeAnime])
+
+
+
+    // const changeImg = () => {
+    //     if (animes) {
+    //         // grab the image for discover
+    //         const img = document.querySelector('#discover-img')
+    //         // get random integer based on the length of animes collection
+    //         const i = Math.floor(Math.random() * animes.length)
+    //         // add new src to the img
+    //         img.src = animes[i].thumbnail
+    //     }
+    // }
 
     return (
         <div className="discover-anime-container">
@@ -33,7 +46,13 @@ export default function DiscoverAnime() {
                 </li>
                 <li>
                     {animes && (
-                        <img id="discover-img" onClick={changeImg} src={animes[0].thumbnail} />
+                        // <img src={animes[0].thumbnail} id="discover-img" onClick={changeImg} alt="anime img" />
+                        <img
+                            id="discover-img"
+                            src={discoveredAnime}
+                            alt="anime img"
+                            onClick={changeAnime}
+                        />
                     )}
                 </li>
                 <li>Genre Selector</li>
