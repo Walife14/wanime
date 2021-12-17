@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useEffect } from 'react/cjs/react.development'
 import { useCollection } from '../../hooks/useCollection'
 
 // styles
@@ -8,9 +10,16 @@ import './DiscoverAnime.css'
 
 export default function DiscoverAnime() {
     const { documents: animes } = useCollection('animes')
+    const [imgSrc, setImgSrc] = useState('')
+    
+    const changeImg = () => {
+        // grab the image for discover
+        const img = document.querySelector('#discover-img')
+        // get random integer based on the length of animes collection
+        const i = Math.floor(Math.random() * animes.length)
+        // add new src to the img
+        img.src = animes[i].thumbnail
 
-    if (animes) {
-        console.log(animes[1])
     }
 
     return (
@@ -22,7 +31,11 @@ export default function DiscoverAnime() {
                     <p>And you will be prompted with the option to discover a new 
                         anime or to find out more about the current anime</p>
                 </li>
-                <li>Anime img</li>
+                <li>
+                    {animes && (
+                        <img id="discover-img" onClick={changeImg} src={animes[0].thumbnail} />
+                    )}
+                </li>
                 <li>Genre Selector</li>
             </ul>
         </div>
