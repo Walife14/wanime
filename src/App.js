@@ -52,7 +52,8 @@ function App() {
               <ThisWeek />
             </Route>
             <Route path="/anime/:id">
-              <Anime />
+              {user && <Anime />}
+              {!user && <Redirect to="/" />}
             </Route>
             <Route path="/add-anime">
               <AddAnime />

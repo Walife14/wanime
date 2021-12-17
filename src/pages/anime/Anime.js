@@ -22,11 +22,6 @@ export default function Anime() {
         else {
             likeAnime(anime.id)
         }
-        console.log(currentUser.likedAnime)
-    }
-
-    if(anime) {
-        console.log(anime)
     }
     
     return (
