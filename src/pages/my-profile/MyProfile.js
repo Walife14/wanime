@@ -1,11 +1,13 @@
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useDocument } from '../../hooks/useDocument'
 
 // styles
 import './MyProfile.css'
 
 export default function MyProfile() {
     const { user } = useAuthContext()
-
+    const { document: currentUser } = useDocument('users', user.uid)
+    
     return (
         <div>
             <div className='profile-container'>
@@ -13,7 +15,7 @@ export default function MyProfile() {
                     <img
                         className='profile-img'
                         src={user.photoURL}
-                        alt=""
+                        alt={`${user.displayName}'s thumbnail`}
                     />
                     <div className='profile-info'>
                         <h2>{user.displayName}</h2>
@@ -22,7 +24,7 @@ export default function MyProfile() {
                 <div className="separator" />
                 <div className='favourite-watchlist-container'>
                     <div className='favourite-container'>
-                        <p className='fav-watchlist-title'>Fav anime</p>
+                        <p className='fav-watchlist-title'>Liked anime</p>
                         <div className='fav-watchlist-option-container'>
                             <div className='fav-watchlist-option'></div>
                             <div className='fav-watchlist-option'></div>

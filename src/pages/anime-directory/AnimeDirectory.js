@@ -4,9 +4,7 @@ import { useCollection } from '../../hooks/useCollection'
 import './AnimeDirectory.css'
 
 export default function AnimeDirectory() {
-    const { documents: animes } = useCollection(
-        'animes'
-    )
+    const { documents: animes } = useCollection('animes')
 
     return (
         <div>
