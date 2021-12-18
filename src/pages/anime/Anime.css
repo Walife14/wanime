@@ -13,18 +13,6 @@
 .anime-thumbnail {
     height: 200px;
 }
-.anime-thumbnail-like {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: absolute;
-    bottom: 0; left: 0;
-    height: 50px;
-    width: 100%;
-    background: red;
-    cursor: pointer;
-}
 .anime-profile h2 {
     width: 100%;
     padding: 10px;
