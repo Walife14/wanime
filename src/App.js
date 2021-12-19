@@ -20,6 +20,7 @@ import Anime from './pages/anime/Anime'
 
 // styles
 import './App.css'
+import LikedAnime from './pages/liked-anime/LikedAnime'
 
 
 function App() {
@@ -63,6 +64,10 @@ function App() {
             </Route>
             <Route path="/theories">
               {user && <Theories />}
+              {!user && <Redirect to="/" />}
+            </Route>
+            <Route path="/liked-anime">
+              {user && <LikedAnime />}
               {!user && <Redirect to="/" />}
             </Route>
             <Route path="*">
