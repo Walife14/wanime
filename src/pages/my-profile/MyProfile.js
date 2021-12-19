@@ -1,13 +1,15 @@
 import { useAuthContext } from '../../hooks/useAuthContext'
-import { useDocument } from '../../hooks/useDocument'
+import { useCollection } from '../../hooks/useCollection'
 
 // styles
 import './MyProfile.css'
 
 export default function MyProfile() {
     const { user } = useAuthContext()
-    const { document: currentUser } = useDocument('users', user.uid)
-    
+    const { documents: animes } = useCollection('animes')
+
+    if (animes) console.log(animes)
+
     return (
         <div>
             <div className='profile-container'>
