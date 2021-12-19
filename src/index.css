@@ -30,3 +30,11 @@ ul, li {
   padding-top: 1px;
   background: linear-gradient(to right, transparent, #000, transparent);
 }
+
+.selected-nav {
+  color: white;
+}
+
+.nav-btn {
+  cursor: pointer;
+}
