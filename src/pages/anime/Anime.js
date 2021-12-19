@@ -18,19 +18,22 @@ export default function Anime() {
     const [liked, setLiked] = useState('')
 
     const handleLike = (e) => {
-        if(currentUser.likedAnime.includes(anime.id)) {
-            dislikeAnime(anime.id)
-        }
-        else {
-            likeAnime(anime.id)
+        if(currentUser) {
+            if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
+                dislikeAnime(anime.id, anime.title, anime.thumbnail)
+            }
+            else {
+                likeAnime(anime.id, anime.title, anime.thumbnail)
+            }
         }
     }
 
     useEffect(() => {
         if(currentUser) {
-            if(currentUser.likedAnime.includes(anime.id)) {
+            if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
                 setLiked('liked')
-            } else {
+            }
+            else {
                 setLiked('not liked!')
             }
         }

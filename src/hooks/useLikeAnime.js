@@ -6,16 +6,30 @@ export const useLikeAnime = (uid) => {
     // user ref
     const userRef = doc(db, 'users', uid)
 
-    const likeAnime = async (id) => {
+    const likeAnime = async (id, title, thumbnail) => {
+
+        let animeObj = {
+            id,
+            title,
+            thumbnail
+        }
+
         await updateDoc(userRef, {
-            likedAnime: arrayUnion(id)
+            likedAnime: arrayUnion(animeObj)
         })
 
     }
 
-    const dislikeAnime = async (id) => {
+    const dislikeAnime = async (id, title, thumbnail) => {
+
+        let animeObj = {
+            id,
+            title,
+            thumbnail
+        }
+
         await updateDoc(userRef, {
-            likedAnime: arrayRemove(id)
+            likedAnime: arrayRemove(animeObj)
         })
 
     }
