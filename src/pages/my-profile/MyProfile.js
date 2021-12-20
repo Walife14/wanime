@@ -27,7 +27,6 @@ export default function MyProfile() {
                     <div className="favourite-container">
                         <p className="fav-watchlist-title">Liked anime</p>
                         <div className="fav-watchlist-option-container">
-
                             {currentUser && currentUser.likedAnime.slice(0, 3).map(x => (
                                 <Link to={`/anime/${x.id}`} className="fav-watchlist-option">
                                     <img

@@ -29,29 +29,49 @@ export default function Navbar() {
                 }
                 {user &&
                     <ul>
-                        <li>Hello, {user.displayName}</li>
+                        <li>
+                            <NavLink className={styles['navbar-name-thumbnail']} to="/my-profile">
+                                {user.displayName}
+                                <img
+                                    src={user.photoURL}
+                                    alt={`${user.displayName}'s thumbnail`}
+                                    className={styles["nav-profile-thumbnail"]}
+                                />
+                            </NavLink>
+                        </li>
                     </ul>
                 }
             </div>
             <div className={`${styles['sub-navbar']} ${styles[mode]}`}>
                 <ul>
                     <li>
-                        <li>
-                            <NavLink to="/theories" activeClassName="selected-nav">
-                                Theories
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/anime-directory" activeClassName="selected-nav">
-                                Anime Directory
-                            </NavLink>
-                        </li>
+                        <ul>
+                            <li>
+                                <NavLink to="/anime-directory" activeClassName="selected-nav">
+                                    Anime Directory
+                                </NavLink>
+                            </li>
+                            {user && (
+                                <li>
+                                    <NavLink to="/theories" activeClassName="selected-nav">
+                                        Theories
+                                    </NavLink>
+                                </li>
+                            )}
+                        </ul>
                     </li>
                     <li>
-                        <li>
-                            <NavLink to="/my-profile" activeClassName="selected-nav">My Profile</NavLink>
-                        </li>
-                        <li className="nav-btn" onClick={logout}>Logout</li>
+                        <ul>
+                            {user && (
+                                <>
+                                    <li>
+                                        <NavLink to="/my-profile" activeClassName="selected-nav">My Profile</NavLink>
+                                    </li>
+                                    <li className="nav-btn" onClick={logout}>Logout</li>
+                                </>
+                            )}
+
+                        </ul>
                     </li>
                 </ul>
             </div>

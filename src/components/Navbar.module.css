@@ -38,6 +38,13 @@
 .login-signup-link:hover {
     background: rgb(228, 109, 109);
 }
+.navbar-name-thumbnail {
+    display: flex;
+    align-items: center;
+}
+.navbar-name-thumbnail img {
+    margin-left: 15px;
+}
 
 /* sub-navbar */
 
@@ -66,4 +73,8 @@
 }
 .sub-navbar ul li li:last-child {
     margin-right: 0px
+}
+.nav-profile-thumbnail {
+    height: 50px;
+    width: 50px;
 }
