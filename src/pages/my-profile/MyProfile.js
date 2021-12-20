@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
 
+// components
+import ProfileHeader from './ProfileHeader'
+
 // styles
 import './MyProfile.css'
 
@@ -10,23 +13,19 @@ export default function MyProfile() {
     const { document: currentUser } = useDocument('users', user.uid)
     
     return (
-        <div>
-            <div className="profile-container">
-                <div className="profile-img-info">
-                    <img
-                        className="profile-img"
-                        src={user.photoURL}
-                        alt={`${user.displayName}'s thumbnail`}
-                    />
-                    <div className="profile-info">
-                        <h2>{user.displayName}</h2>
-                    </div>
-                </div>
+        <>
+            <div className="profile-container" user={user}>
+                <ProfileHeader />
                 <div className="separator" />
                 <div className="favourite-watchlist-container">
                     <div className="favourite-container">
                         <p className="fav-watchlist-title">Liked anime</p>
                         <div className="fav-watchlist-option-container">
+                            {currentUser && currentUser.likedAnime.length === 0 && (
+                                <div className="fav-watchlist-option">
+                                    <span>No Anime Found</span>
+                                </div>
+                            )}
                             {currentUser && currentUser.likedAnime.length > 0 && currentUser.likedAnime.slice(0, 3).map(x => (
                                 <Link to={`/anime/${x.id}`} className="fav-watchlist-option">
                                     <img
@@ -36,11 +35,6 @@ export default function MyProfile() {
                                     />
                                 </Link>
                             ))}
-                            {currentUser && currentUser.likedAnime.length == 0 && (
-                                <div className="fav-watchlist-option">
-                                    <span>No Anime Found</span>
-                                </div>
-                            )}
                         </div>
                         <Link to="/liked-anime" className='view-all-option'>View All</Link>
                     </div>
@@ -56,6 +50,6 @@ export default function MyProfile() {
                 </div>
                 <div className="separator" />
             </div>
-        </div>
+        </>
     )
 }

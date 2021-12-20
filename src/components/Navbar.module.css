@@ -20,12 +20,10 @@
 .login-signup {
     display: flex;
 }
-
 .login-signup-item {
     margin-left: 20px;
     text-decoration: none;
 }
-
 .login-signup-link {
     text-decoration: none;
     padding: 5px 20px;

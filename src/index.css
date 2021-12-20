@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;500;600;700&display=swap');
 
+:root {
+    --primary-color: rgb(224, 72, 72);
+    --primary-font: #333;
+    --secondary-font: #666;
+}
+
 /* base styles */
 
 body {
@@ -24,12 +30,16 @@ ul, li {
   list-style: none;
 }
 
+/* re-usable */
+
 .separator {
-  width: 60%;
+  max-width: 1280px;
   margin: 40px auto;
   padding-top: 1px;
   background: linear-gradient(to right, transparent, #000, transparent);
 }
+
+/* specific */
 
 .selected-nav {
   color: white;

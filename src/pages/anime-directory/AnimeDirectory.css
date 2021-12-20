@@ -1,0 +1,44 @@
+
+
+.anime-directory-filter {
+    max-width: 1280px;
+    background: white;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.anime-directory-container {
+    max-width: 1280px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.anime-directory-entry:hover a {
+    color: var(--primary-color);
+}
+
+.anime-directory-container h2 {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+.anime-directory-container h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(to right, transparent, black, transparent);
+}
+.anime-directory-container ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.anime-directory-container ul li {
+    text-align: left;
+    flex: 25%;
+    margin: 5px 0;
+}
