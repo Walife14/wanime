@@ -20,10 +20,10 @@ export default function Anime() {
     const handleLike = (e) => {
         if(currentUser) {
             if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
-                dislikeAnime(anime.id, anime.title, anime.thumbnail)
+                dislikeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
             }
             else {
-                likeAnime(anime.id, anime.title, anime.thumbnail)
+                likeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
             }
         }
     }

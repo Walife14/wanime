@@ -6,12 +6,13 @@ export const useLikeAnime = (uid) => {
     // user ref
     const userRef = doc(db, 'users', uid)
 
-    const likeAnime = async (id, title, thumbnail) => {
+    const likeAnime = async (id, title, thumbnail, squareThumbnail) => {
 
         let animeObj = {
             id,
             title,
-            thumbnail
+            thumbnail,
+            squareThumbnail
         }
 
         await updateDoc(userRef, {
@@ -20,12 +21,13 @@ export const useLikeAnime = (uid) => {
 
     }
 
-    const dislikeAnime = async (id, title, thumbnail) => {
+    const dislikeAnime = async (id, title, thumbnail, squareThumbnail) => {
 
         let animeObj = {
             id,
             title,
-            thumbnail
+            thumbnail,
+            squareThumbnail
         }
 
         await updateDoc(userRef, {

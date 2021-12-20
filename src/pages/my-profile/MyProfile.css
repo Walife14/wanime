@@ -1,57 +1,78 @@
 .profile-container {
-    width: 75%;
+    width: 1280px;
     margin: 0 auto;
 }
-.profile-img-info {
-    display: flex;
-    padding: 10px;
-}
-.profile-img {
-    height: 100px;
-    border-radius: 50%;
-    background: red;
-}
-.profile-info {
-    flex: 1;
-}
-.favourite-watchlist-container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-.favourite-container, .watchlist-container {
-    width: 48%;
-}
-.fav-watchlist-title {
+
+/* Profile header */
+
+.profile-header {
     position: relative;
+    margin: 25px 0;
+    height: 250px;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-.fav-watchlist-title:after, .favourite-view-all:after {
-    content: '';
+.profile-header-background {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(to right, #000, transparent);
-}
-.fav-watchlist-option-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px 0;
-}
-.view-all-option {
-    position: relative;
-}
-.view-all-option:after {
-    top: 0;
-}
-.fav-watchlist-option {
-    height: 100px;
-    width: 100px;
-    background: pink;
+    height: 200px;
     overflow: hidden;
 }
-.fav-watchlist-thumbnail {
+.profile-header img {
     width: 100%;
+    bottom: 0;
+}
+.profile-header-content {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 150px; width: 100%;
+    display: flex;
+    padding: 0 50px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.profile-header-content img {
+    height: 150px; width: 150px;
+    border-radius: 50%;
+}
+.profile-header-content div {
+    display: flex;
+    align-items: flex-end;
+}
+.profile-header-content div span {
+    margin-left: 25px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Liked and Watchlist section */
+
+.liked-watchlist-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    background: var(--primary-color);
+}
+.liked-watchlist-container div {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 49%;
+}
+.liked-watchlist-container div ul {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+.liked-watchlist-container div ul li {
+    max-height: 150px; max-width: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.liked-watchlist-container div ul li a {
+    max-width: 125px; max-height: 125px;
+}
+.liked-watchlist-container div ul li a img {
+    max-width: 125px;
 }

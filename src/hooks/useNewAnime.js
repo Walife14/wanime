@@ -12,23 +12,39 @@ export const useNewAnime = () => {
     // thumbnail
     const storage = getStorage()
 
-    const newAnime = (title, thumbnail) => {
+    const newAnime = async (title, thumbnail, thumbnailSquare) => {
         setError(null)
+
+        let squareThumbnail = ''
+
+        const uploadSquarePath = `anime/thumbnailSquare/${thumbnailSquare.name}`
+        const storageSquareRef = ref(storage, uploadSquarePath)
+        await uploadBytes(storageSquareRef, thumbnailSquare)
+                    .then((snapshot) => {
+                        console.log(snapshot)
+                        getDownloadURL(snapshot.ref)
+                            .then((downloadURL) => {
+                                squareThumbnail = downloadURL
+                            })
+                    })
 
         const uploadPath = `anime/thumbnail/${thumbnail.name}`
         const storageRef = ref(storage, uploadPath)
-        uploadBytes(storageRef, thumbnail)
+        await uploadBytes(storageRef, thumbnail)
                     .then((snapshot) => {
                         console.log(snapshot)
                         getDownloadURL(snapshot.ref)
                             .then((downloadURL) => {
                                 addDoc(colRef, {
                                     thumbnail: downloadURL,
-                                    title
+                                    title,
+                                    squareThumbnail
                                 })
                             })
 
                     })
+        
+        
     }
 
     return { error, newAnime }
