@@ -27,7 +27,7 @@ export default function MyProfile() {
                     <div className="favourite-container">
                         <p className="fav-watchlist-title">Liked anime</p>
                         <div className="fav-watchlist-option-container">
-                            {currentUser && currentUser.likedAnime.slice(0, 3).map(x => (
+                            {currentUser && currentUser.likedAnime.length > 0 && currentUser.likedAnime.slice(0, 3).map(x => (
                                 <Link to={`/anime/${x.id}`} className="fav-watchlist-option">
                                     <img
                                         src={x.thumbnail}
@@ -36,6 +36,11 @@ export default function MyProfile() {
                                     />
                                 </Link>
                             ))}
+                            {currentUser && currentUser.likedAnime.length == 0 && (
+                                <div className="fav-watchlist-option">
+                                    <span>No Anime Found</span>
+                                </div>
+                            )}
                         </div>
                         <Link to="/liked-anime" className='view-all-option'>View All</Link>
                     </div>
