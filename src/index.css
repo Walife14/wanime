@@ -2,6 +2,7 @@
 
 :root {
     --primary-color: rgb(224, 72, 72);
+    --secondary-color: rgb(196, 59, 59);
     --primary-font: #333;
     --secondary-font: #666;
 }
@@ -31,6 +32,20 @@ ul, li {
 }
 
 /* re-usable */
+
+.btn {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  background: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover, .btn:focus {
+  color: var(--secondary-font);
+  background: #dfdfdf;
+}
 
 .s-title {
   font-size: 24px;

@@ -8,8 +8,9 @@ import './DiscoverAnime.css'
 // implement a genre system for each anime added to the database
 
 export default function DiscoverAnime() {
-    const { documents: animes } = useCollection('animes')
+    const [activate, setActivate] = useState(null)
     const [discoveredAnime, setDiscoveredAnime] = useState('')
+    const { documents: animes } = useCollection('animes')
 
     const changeAnime = useCallback(() => {
         if (animes) {
@@ -26,13 +27,16 @@ export default function DiscoverAnime() {
         <div className="discover-anime-container">
             <ul>
                 <li>
-                    <h2>Discover a new anime!</h2>
+                    <h2 className="s-title">Discover a new anime!</h2>
                     <p>Hover your mouse over the anime image beside me!</p>
                     <p>And you will be prompted with the option to discover a new 
                         anime or to find out more about the current anime</p>
                 </li>
                 <li>
-                    {animes && (
+                    {!activate && (
+                        <div onClick={() => setActivate(true)} className="btn">Click here</div>
+                    )}
+                    {activate && animes && (
                         <img
                             id="discover-img"
                             src={discoveredAnime}

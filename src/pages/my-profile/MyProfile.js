@@ -18,8 +18,6 @@ export default function MyProfile() {
         <div className="profile-container">
             <ProfileHeader user={user} />
             <ProfileLikedWatchlist currentUser={currentUser} />
-            
-            <div className="separator" />
         </div>
     )
 }

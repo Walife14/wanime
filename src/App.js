@@ -4,6 +4,7 @@ import { useAuthContext } from './hooks/useAuthContext'
 
 // page components
 import Navbar from './components/Navbar'
+import FriendsChat from './components/FriendsChat'
 import Footer from './components/Footer'
 import ThemeSelector from './components/ThemeSelector'
 
@@ -32,6 +33,7 @@ function App() {
       {authIsReady && (
         <BrowserRouter>
           <Navbar />
+          <FriendsChat />
           <ThemeSelector />
           <Switch>
             <Route exact path="/">

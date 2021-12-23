@@ -1,0 +1,12 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    height: 40px;
+    width: 60px;
+    background: var(--primary-color);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+}

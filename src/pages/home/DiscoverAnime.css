@@ -1,9 +1,11 @@
 
 .discover-anime-container {
-    background: rgb(235, 154, 154);
+    background: var(--primary-color);
     height: 400px;
 }
 .discover-anime-container ul {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     height: 100%;
 }
@@ -15,8 +17,8 @@
     flex: 1;
 }
 .discover-anime-container ul li p {
-    width: 80%;
-    text-align: center;
+    text-align: justify;
+    padding: 12.5px 0;
 }
 #discover-img {
     height: 100%;

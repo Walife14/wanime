@@ -52,6 +52,7 @@
     justify-content: space-between;
     padding: 25px;
     background: var(--primary-color);
+    border-radius: 5px;
 }
 .liked-watchlist-container div {
     display: flex;
