@@ -61,6 +61,11 @@ export default function Anime() {
                             </>
                         )}
                     </div>
+                    {anime &&
+                        <div className="anime-profile-description-container">
+                            <p>{anime.description}</p>
+                        </div>
+                    }
                 </div>
             </div>
             <div>

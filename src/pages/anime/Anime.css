@@ -33,10 +33,14 @@
 .anime-profile-header {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 .anime-profile-header h2 {
     font-size: 32px;
 }
 .anime-profile-header small {
     margin-left: 20px;
+}
+.anime-profile-description-container {
+    width: 50%;
 }

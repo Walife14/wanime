@@ -12,12 +12,13 @@ export default function AddAnime() {
     const [thumbnailSquare, setThumbnailSquare] = useState('')
     const [thumbnailSquareError, setThumbnailSquareError] = useState('')
     const [releaseDate, setReleaseDate] = useState('')
+    const [description, setDescription] = useState('')
     const { error, newAnime } = useNewAnime(null)
     const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        newAnime(title, thumbnail, thumbnailSquare, releaseDate)
+        newAnime(title, thumbnail, thumbnailSquare, releaseDate, description)
         // make this push go to the specific anime in the future
         history.push("/")
     }
@@ -87,6 +88,7 @@ export default function AddAnime() {
                 <input
                     type="file"
                     onChange={handleFileChangeCover}
+                    required
                 />
                 {thumbnailError && <div>{thumbnailError}</div>}
             </label>
@@ -95,6 +97,7 @@ export default function AddAnime() {
                 <input
                     type="file"
                     onChange={handleFileChangeSquare}
+                    required
                 />
                 {thumbnailSquareError && <div>{thumbnailSquareError}</div>}
             </label>
@@ -103,9 +106,17 @@ export default function AddAnime() {
                     type="date"
                     onChange={e => setReleaseDate(e.target.value)}
                     value={releaseDate}
+                    required
                 />
             <label>
-
+            <label>
+                <span>Description</span>
+                <textarea
+                    onChange={e => setDescription(e.target.value)}
+                    value={description}
+                    required
+                ></textarea>
+            </label>
             </label>
             <button>Signup</button>
             {error && <p>{error}</p>}
