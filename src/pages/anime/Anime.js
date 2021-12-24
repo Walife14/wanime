@@ -52,9 +52,16 @@ export default function Anime() {
                         </>
                     )}
                 </div>
-                {anime &&
-                    <h2>{anime.title}</h2>
-                }
+                <div className="anime-profile-content">
+                    <div className="anime-profile-header">
+                        {anime && (
+                            <>
+                                <h2>{anime.title}</h2>
+                                <small>Released: {anime.releaseDate}</small>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
             <div>
                 {anime && <p>{anime.ranking}</p>}

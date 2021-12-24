@@ -12,7 +12,7 @@ export const useNewAnime = () => {
     // thumbnail
     const storage = getStorage()
 
-    const newAnime = async (title, thumbnail, thumbnailSquare) => {
+    const newAnime = async (title, thumbnail, thumbnailSquare, releaseDate) => {
         setError(null)
 
         let squareThumbnail = ''
@@ -38,7 +38,8 @@ export const useNewAnime = () => {
                                 addDoc(colRef, {
                                     thumbnail: downloadURL,
                                     title,
-                                    squareThumbnail
+                                    squareThumbnail,
+                                    releaseDate
                                 })
                             })
 

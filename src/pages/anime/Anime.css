@@ -25,7 +25,18 @@
     background: red;
     cursor: pointer;
 }
-.anime-profile h2 {
-    width: 100%;
+.anime-profile-content {
     padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.anime-profile-header {
+    display: flex;
+    align-items: center;
+}
+.anime-profile-header h2 {
+    font-size: 32px;
+}
+.anime-profile-header small {
+    margin-left: 20px;
 }
