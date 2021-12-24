@@ -44,3 +44,20 @@
 .anime-profile-description-container {
     width: 50%;
 }
+
+.anime-where-to-watch-container, .anime-gallery-container {
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 25px 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.anime-gallery-container div {
+    display: flex;
+}
+.anime-gallery-container img {
+    height: 150px;
+    margin: 0 12.5px;
+}

@@ -68,8 +68,32 @@ export default function Anime() {
                     }
                 </div>
             </div>
+            <div className="anime-where-to-watch-container">
+                <span>Where to Watch</span>
+            </div>
+            <div className="anime-gallery-container">
+                <span>Anime Gallery</span>
+                <div>
+                    {anime && (
+                        <>
+                        <div>
+                            <img
+                                src={anime.thumbnail}
+                                alt={`${anime.title}'s thumbnail`}
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src={anime.squareThumbnail}
+                                alt={`${anime.title}'s square thumbnail`}
+                            />
+                        </div>
+                        </>
+                    )}
+                </div>
+            </div>
             <div>
-                {anime && <p>{anime.ranking}</p>}
+                Comments
             </div>
         </div>
     )
