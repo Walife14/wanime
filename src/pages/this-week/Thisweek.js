@@ -38,7 +38,7 @@ export default function ThisWeek() {
             <div className="anime-list-container">
                 {animes && animes.map(anime => (
                     <Link className="anime-card" key={anime.id} to={`/anime/${anime.id}`}>
-                        <img src={anime.thumbnail} alt={`${anime.title} thumbnail`} className="anime-card-img" />
+                        <img src={anime.squareThumbnail} alt={`${anime.title} thumbnail`} className="anime-card-img" />
                         <div className="anime-card-text-container">
                             <span>{anime.title}</span>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, iusto!</p>

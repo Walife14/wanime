@@ -4,7 +4,7 @@
 }
 .top-3-list {
     width: 60%;
-    margin: 50px auto;
+    margin: 25px auto;
     display: flex;
     justify-content: space-around;
 }
@@ -28,16 +28,19 @@
     position: relative;
     background: rgb(231, 71, 71);
     width: 60%;
-    margin: 20px auto;
+    margin: 0 auto 25px auto;
     display: flex;
     height: 150px;
+    overflow: hidden;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .anime-card a {
     height: 100%;
     width: 100%;
 }
 .anime-card img {
-    width: 250px;
+    width: 200px;
 }
 .anime-card-text-container {
     padding: 10px;

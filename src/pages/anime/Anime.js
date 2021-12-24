@@ -74,10 +74,12 @@ export default function Anime() {
             <div className="anime-gallery-container">
                 <span>Anime Gallery</span>
                 <div>
+                    {/* create a modal for whenever a user clicks an image */}
                     {anime && (
                         <>
                         <div>
                             <img
+                                onClick={e => console.log(e.target.src)}
                                 src={anime.thumbnail}
                                 alt={`${anime.title}'s thumbnail`}
                             />
