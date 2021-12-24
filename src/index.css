@@ -58,7 +58,7 @@ ul, li {
 
 .separator {
   max-width: 1280px;
-  margin: 40px auto;
+  margin: 25px auto;
   padding-top: 1px;
   background: linear-gradient(to right, transparent, #000, transparent);
 }

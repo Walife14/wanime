@@ -10,7 +10,7 @@
 
 .anime-directory-container {
     max-width: 1280px;
-    margin: 50px auto;
+    margin: 25px auto;
     background: white;
     padding: 25px;
     box-sizing: border-box;
@@ -23,7 +23,7 @@
 .anime-directory-container h2 {
     display: inline-block;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 32px;
 }
 .anime-directory-container h2:after {
