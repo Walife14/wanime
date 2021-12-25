@@ -19,7 +19,7 @@ export const useUpdateProfile = () => {
         setError(null)
 
         // Store new "backgroundImage" for user in database
-        const uploadPath = `backgroundImages/${user.uid}/${backgroundImage.name}`   
+        const uploadPath = `backgroundImages/${user.uid}/${user.displayName}'s background image`   
         const storageRef = ref(storage, uploadPath)
         uploadBytes(storageRef, backgroundImage)
             .then((snapshot) => {
