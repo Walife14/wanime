@@ -16,7 +16,7 @@ export default function MyProfile() {
     
     return (
         <div className="profile-container">
-            <ProfileHeader user={user} />
+            <ProfileHeader user={user} currentUser={currentUser} />
             <ProfileLikedWatchlist currentUser={currentUser} />
         </div>
     )

@@ -1,14 +1,17 @@
 
 
-export default function ProfileHeader({ user }) {
+export default function ProfileHeader({ user, currentUser }) {
 
     return (
         <div className="profile-header">
             <div className="profile-header-background">
-                <img
-                    src="https://www.teahub.io/photos/full/320-3202203_landscape-background-sky.jpg"
-                    alt={`${user.displayName}'s background`}
-                />
+                {/* Profile background is null by default and should be a black imageif so */}
+                {currentUser &&
+                    <img
+                        src={currentUser.backgroundImage}
+                        alt={`${user.displayName}'s background`}
+                    />
+                }
             </div>
             <div className="profile-header-content">
                 <img

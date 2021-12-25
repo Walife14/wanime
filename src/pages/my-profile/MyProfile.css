@@ -16,7 +16,9 @@
 .profile-header-background {
     position: absolute;
     height: 200px;
+    width: 100%;
     overflow: hidden;
+    background: var(--primary-color);
 }
 .profile-header img {
     width: 100%;

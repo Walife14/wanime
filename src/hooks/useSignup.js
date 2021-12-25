@@ -43,7 +43,8 @@ export const useSignup = () => {
                                     displayName: username,
                                     photoURL: downloadURL,
                                     online: true,
-                                    likedAnime: []
+                                    likedAnime: [],
+                                    backgroundImage: null
                                 })
 
                             })
