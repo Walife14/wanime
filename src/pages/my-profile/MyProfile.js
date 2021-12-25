@@ -12,8 +12,6 @@ export default function MyProfile() {
     const { user } = useAuthContext()
     const { document: currentUser } = useDocument('users', user.uid)
 
-    if(currentUser) console.log(currentUser)
-    
     return (
         <div className="profile-container">
             <ProfileHeader user={user} currentUser={currentUser} />

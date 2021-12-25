@@ -29,6 +29,7 @@
     bottom: 0; left: 0;
     height: 150px; width: 100%;
     display: flex;
+    align-items: flex-end;
     padding: 0 50px;
     box-sizing: border-box;
     z-index: 1;
@@ -45,6 +46,21 @@
     margin-left: 25px;
     font-size: 32px;
     font-weight: bold;
+}
+.profile-header-content button {
+    margin-left: auto;
+}
+.profile-header-form {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.profile-header-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+.profile-header-form-buttons button {
+    margin-right: 25px;
 }
 
 /* Liked and Watchlist section */
