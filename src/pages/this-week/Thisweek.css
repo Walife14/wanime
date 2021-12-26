@@ -26,7 +26,7 @@
 }
 .anime-card {
     position: relative;
-    background: rgb(231, 71, 71);
+    background: var(--primary-color);
     width: 60%;
     margin: 0 auto 25px auto;
     display: flex;
@@ -34,13 +34,17 @@
     overflow: hidden;
     padding: 5px;
     box-sizing: border-box;
+    transition: background 200ms linear;
+}
+.anime-card:hover {
+    background: var(--secondary-color);
 }
 .anime-card a {
     height: 100%;
     width: 100%;
 }
 .anime-card img {
-    width: 200px;
+    height: 100%;
 }
 .anime-card-text-container {
     padding: 10px;

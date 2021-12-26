@@ -4,9 +4,54 @@
     right: 25px;
     height: 40px;
     width: 60px;
-    background: var(--primary-color);
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    background: var(--secondary-color);
     box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+}
+
+.container-show {
+    position: fixed;
+    bottom: 0; right: 0;
+    height: 50vh;
+    width: 350px;
+    background: var(--primary-color);
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    z-index: 2;
+    border-top-left-radius: 5px;
+    animation: fadeIn 200ms;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-show-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.container-show-header span {
+    padding: 5px 0 5px 10px;
+}
+.container-show-header div {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container-show a {
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0;
+    background: var(--secondary-color);
+}
+.container-show a:hover {
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0;}
+    to {opacity: 100%;}
 }

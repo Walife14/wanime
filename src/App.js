@@ -18,6 +18,7 @@ import MyProfile from './pages/my-profile/MyProfile'
 import AddAnime from './pages/add-anime/AddAnime'
 import AnimeDirectory from './pages/anime-directory/AnimeDirectory'
 import Anime from './pages/anime/Anime'
+import SearchFriends from './pages/search-friends/SearchFriends'
 
 // styles
 import './App.css'
@@ -50,6 +51,9 @@ function App() {
             <Route path="/login">
               {!user && <Login />}
               {user && <Redirect to="/" />}
+            </Route>
+            <Route path="/search">
+              <SearchFriends />
             </Route>
             <Route path="/this-week">
               <ThisWeek />
