@@ -1,0 +1,32 @@
+.anime-comments-list {
+}
+.anime-comments-list li {
+    display: flex;
+    margin: 25px 0;
+}
+.anime-comments-list li div p {
+    font-weight: bold;
+}
+.anime-comments-list li img {
+    height: 75px;
+    border-radius: 50%;
+}
+.anime-comments-content {
+    margin: 5px 10px;
+}
+
+.anime-comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.anime-comment-form label textarea {
+    display: block;
+    margin: 5px 0;
+    resize: none;
+    width: 480px;
+    font-size: 18px;
+}
+.anime-comment-form label textarea:focus {
+    outline: none;
+}

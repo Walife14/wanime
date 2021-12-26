@@ -1,7 +1,7 @@
 .container {
     position: fixed;
     bottom: 0;
-    right: 50px;
+    right: 25px;
     height: 40px;
     width: 60px;
     background: var(--primary-color);

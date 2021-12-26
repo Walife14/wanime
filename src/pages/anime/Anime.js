@@ -4,6 +4,9 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
 import { useLikeAnime } from '../../hooks/useLikeAnime'
 
+// components
+import AnimeComments from './AnimeComments.js'
+
 // styles
 import './Anime.css'
 
@@ -95,7 +98,10 @@ export default function Anime() {
                 </div>
             </div>
             <div>
-                Comments
+                Theories
+            </div>
+            <div>
+                <AnimeComments anime={anime} />
             </div>
         </div>
     )

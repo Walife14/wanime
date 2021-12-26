@@ -88,6 +88,7 @@ export default function ProfileHeader({ user, currentUser }) {
                         <div className="btn" onClick={() => setDisplayHeaderForm(false)}>Cancel</div>
                     </div>
                     {backgroundImageError && <p>{backgroundImageError}</p>}
+                    {error && <p>{error}</p>}
                 </form>
             )}
         </>
