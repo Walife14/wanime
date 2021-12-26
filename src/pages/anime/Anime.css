@@ -1,17 +1,18 @@
 .anime-container {
     min-width: 1280px;
+    max-width: 1280px;
     margin: 50px auto;
 }
 
 .anime-profile {
-    height: 250px;
+    height: 500px;
     display: flex;
 }
 .anime-profile-thumb {
     position: relative;
 }
 .anime-thumbnail {
-    height: 200px;
+    height: 450px;
 }
 .anime-thumbnail-like {
     display: flex;

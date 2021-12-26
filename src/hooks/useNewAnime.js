@@ -12,7 +12,7 @@ export const useNewAnime = () => {
     // thumbnail
     const storage = getStorage()
 
-    const newAnime = async (title, thumbnail, thumbnailSquare, releaseDate, description) => {
+    const newAnime = async (title, thumbnail, thumbnailSquare, releaseDate, description, comments) => {
         setError(null)
 
         let squareThumbnail = ''
@@ -40,7 +40,8 @@ export const useNewAnime = () => {
                                     title,
                                     squareThumbnail,
                                     releaseDate,
-                                    description
+                                    description,
+                                    comments: []
                                 })
                             })
 
