@@ -1,14 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useFindUser } from '../../hooks/useFindUser'
 
 // styles
 import './SearchFriends.css'
 
 export default function SearchFriends() {
     const [searchTerm, setSearchTerm] = useState('')
+    const [foundUser, setFoundUser] = useState(null)
+    // const { documents: foundUser } = useFindUser(
+    //     'users',
+    //     ['displayName', '==', searchTerm]
+    //     )
+    const { findPerson } = useFindUser()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        findPerson('users', ['displayName', '==', searchTerm])
+            .then(e => console.log("++", e))
     }
+
+    useEffect(() => {
+        if (foundUser) console.log(foundUser)
+    }, [foundUser])
 
     return (
         <div>
