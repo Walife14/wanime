@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useFindUser } from '../../hooks/useFindUser'
 
 // styles
@@ -7,24 +8,20 @@ import './SearchFriends.css'
 export default function SearchFriends() {
     const [searchTerm, setSearchTerm] = useState('')
     const [foundUser, setFoundUser] = useState(null)
-    // const { documents: foundUser } = useFindUser(
-    //     'users',
-    //     ['displayName', '==', searchTerm]
-    //     )
     const { findPerson } = useFindUser()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         findPerson('users', ['displayName', '==', searchTerm])
-            .then(e => console.log("++", e))
+            .then(user => setFoundUser(user))
     }
 
     useEffect(() => {
-        if (foundUser) console.log(foundUser)
+        if (foundUser) console.log("WE GOT EM", foundUser)
     }, [foundUser])
 
     return (
-        <div>
+        <div className="search-friends-container">
             <h2>Search for a friend</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -35,8 +32,15 @@ export default function SearchFriends() {
                 />
                 <button>Find</button>
             </form>
-            <p>
-            </p>
+            <h2>Found User</h2>
+            {foundUser && (
+                <Link to={`/profile/${foundUser.id}`}>
+                        <div>
+                            <img src={foundUser.photoURL} alt={`${foundUser.displayName}'s thumbnail`} />
+                            <span>{foundUser.displayName}</span>
+                        </div>
+                </Link>
+            )}
         </div>
     )
 }

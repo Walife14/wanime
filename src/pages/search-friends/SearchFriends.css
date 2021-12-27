@@ -1,0 +1,35 @@
+.search-friends-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: lightblue;
+    width: 1280px;
+    margin: 25px auto;
+}
+.search-friends-container h2 {
+    text-align: center;
+}
+.search-friends-container form {
+    width: 480px;
+    text-align: center;
+    margin: 25px auto;
+}
+.search-friends-container a div {
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 5px;
+    margin: 25px 0;
+    cursor: pointer;
+}
+.search-friends-container a div:hover {
+    background: var(--secondary-color);
+}
+.search-friends-container a div img {
+    width: 75px;
+    border-radius: 50%;
+}
+.search-friends-container a div span {
+    font-size: 32px;
+    margin-left: 25px;
+}

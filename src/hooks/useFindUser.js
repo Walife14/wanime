@@ -1,5 +1,4 @@
-import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore'
-import { useEffect, useState } from 'react'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase/config'
 
 export const useFindUser = () => {
@@ -13,35 +12,13 @@ export const useFindUser = () => {
 
         const querySnapshot = await getDocs(ref)
 
-        // console.log(querySnapshot)
-
-        let results = []
+        let result = null
 
         querySnapshot.forEach(doc => {
-            results.push({ ...doc.data(), id: doc.id })
-            console.log(doc.id, " => ", doc.data())
+            result = ({ id: doc.id, ...doc.data() })
         })
 
-        const user = results[0]
-
-        // let ref = collection(db, c)
-
-        // ref = query(ref, where(..._q))
-
-        // onSnapshot(ref, (snapshot) => {
-        //     snapshot.docs.forEach(doc => {
-        //         setUser(({ ...doc.data(), id: doc.id }))
-        //     })
-        // })
-
-        // console.log(user)
-
-        // const querySnapshot = await getDocs(que)
-        // querySnapshot.forEach((doc) => {
-        //     setUser({ ...doc.data(), id: doc.id })
-        // })
-
-        return user
+        return result
     }
 
     return { findPerson }
