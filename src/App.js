@@ -19,6 +19,7 @@ import AddAnime from './pages/add-anime/AddAnime'
 import AnimeDirectory from './pages/anime-directory/AnimeDirectory'
 import Anime from './pages/anime/Anime'
 import SearchFriends from './pages/search-friends/SearchFriends'
+import ViewProfile from './pages/view-profile/ViewProfile'
 
 // styles
 import './App.css'
@@ -43,6 +44,9 @@ function App() {
             <Route path="/my-profile">
               {user && <MyProfile />}
               {!user && <Redirect to="/" />}
+            </Route>
+            <Route path="/profile/:id">
+              <ViewProfile />
             </Route>
             <Route path="/signup">
               {!user && <Signup />}
