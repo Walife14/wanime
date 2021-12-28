@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 // firebase imports
 import { db } from '../firebase/config'
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
-import { doc, updateDoc } from "firebase/firestore"
+import { arrayUnion, doc, updateDoc } from "firebase/firestore"
 
 // For now this page will only update the user background Image from the user profile page
 
@@ -14,6 +14,8 @@ export const useUpdateProfile = () => {
 
     const userRef = doc(db, 'users', user.uid)
     const storage = getStorage()
+
+    // -----------
 
     const updateUser = async (backgroundImage) => {
         setError(null)
@@ -35,40 +37,15 @@ export const useUpdateProfile = () => {
             })
     }
 
+    // ------------
 
+    const updateFollowing = async (newUser) => {
+        setError(null)
 
-    // createUserWithEmailAndPassword(auth, email, password)
-    //     .then((res) => {
+        await updateDoc(userRef, {
+            following: arrayUnion(newUser)
+        })
+    }
 
-    //         // add a document with user uid as id to add additional fields (e.g likedAnime) pt1
-
-    //         const uploadPath = `backgroundImages/${res.user.uid}/${backgroundImage.name}`   
-    //         const storageRef = ref(storage, uploadPath)
-    //         uploadBytes(storageRef, thumbnail)
-    //             .then((snapshot) => {
-    //                 console.log(snapshot)
-    //                 getDownloadURL(snapshot.ref)
-    //                     .then((downloadURL) => {
-    //                         updateProfile(res.user, {
-    //                             photoURL: downloadURL
-    //                         })
-    //                         // add a document with user uid as id to add additional fields (e.g likedAnime) pt2
-
-    //                         setDoc(doc(db, 'users', res.user.uid), {
-    //                             displayName: username,
-    //                             photoURL: downloadURL,
-    //                             online: true,
-    //                             likedAnime: [],
-    //                             backgroundImage: null
-    //                         })
-
-    //                     })
-    //             })
-    //     })
-    //     .catch((err) => {
-    //         setError(err.message)
-    //     })
-    // }
-
-    return { error, updateUser }
+    return { error, updateUser, updateFollowing }
 }

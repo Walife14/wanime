@@ -6,3 +6,32 @@
     width: 75px;
     border-radius: 50%;
 }
+
+/* following || followers container */
+
+.show-following-container {
+    width: 480px;
+    height: 50vh;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    box-sizing: border-box;
+}
+.show-following-container div {
+    display: flex;
+}
+.show-following-container div span {
+    font-size: 32px;
+}
+.show-following-container div div {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    background: var(--primary-color);
+    cursor: pointer;
+}
