@@ -29,30 +29,32 @@ export const useSignup = () => {
 
                 const uploadPath = `thumbnails/${res.user.uid}/${thumbnail.name}`   
                 const storageRef = ref(storage, uploadPath)
+
                 uploadBytes(storageRef, thumbnail)
-                    .then((snapshot) => {
-                        console.log(snapshot)
+                    .then(snapshot => {
                         getDownloadURL(snapshot.ref)
-                            .then((downloadURL) => {
+                            .then(url => {
                                 updateProfile(res.user, {
-                                    photoURL: downloadURL
+                                    photoURL: url,
+                                    displayName: username
                                 })
-                                // add a document with user uid as id to add additional fields (e.g likedAnime) pt2
+
+                                // creating a firestore db document for the user
 
                                 setDoc(doc(db, 'users', res.user.uid), {
                                     displayName: username,
-                                    photoURL: downloadURL,
+                                    photoURL: url,
                                     online: true,
                                     likedAnime: [],
-                                    backgroundImage: null
+                                    backgroundImage: null,
+                                    followers: [],
+                                    following: []
                                 })
-
                             })
                     })
-                    updateProfile(res.user, {
-                        displayName: username
+                    .then(() => {
+                        dispatch({ type: 'LOGIN', payload: res.user })
                     })
-                dispatch({ type: 'LOGIN', payload: res.user })
             })
             .catch((err) => {
                 setError(err.message)
