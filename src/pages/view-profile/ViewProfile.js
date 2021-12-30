@@ -21,7 +21,6 @@ export default function ViewProfile() {
 
         // check whether or not current user signed in follows the viewed profile and update doIFollow state
         if (user) {
-
             if (user.following.some(e => e.id === id)) {
                 setDoIFollow("Unfollow")
                 console.log("I follow the person with this id...", id)
@@ -30,13 +29,6 @@ export default function ViewProfile() {
                 setDoIFollow("Follow")
                 console.log("I dont follow the user with this id...", id)
             }
-
-            // if (user.following.filter(e => e.id === id)) {
-            //     setDoIFollow("Unfollow")
-            // }
-            // if (!user.following.filter(e => e.id === id)) {
-            //     setDoIFollow("Follow")
-            // }
         }
     }, [user, id])
 
