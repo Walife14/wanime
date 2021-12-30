@@ -14,7 +14,7 @@ export default function ViewProfile() {
     const { document: foundUser } = useDocument('users', id)
     const [showFollowing, setShowFollowing] = useState(false)
     const [showFollowers, setShowFollowers] = useState(false)
-    const [doIFollow, setDoIFollow] = useState("Follow")
+    const [doIFollow, setDoIFollow] = useState("")
     const { updateFollowing } = useUpdateProfile()
 
     useEffect(() => {
@@ -23,32 +23,27 @@ export default function ViewProfile() {
         if (user) {
             if (user.following.some(e => e.id === id)) {
                 setDoIFollow("Unfollow")
-                console.log("I follow the person with this id...", id)
             }
             if (!user.following.some(e => e.id === id)) {
                 setDoIFollow("Follow")
-                console.log("I dont follow the user with this id...", id)
             }
         }
     }, [user, id])
 
     const handleFollow = () => {
-
-        console.log(user.following)
-
         const userFollowing = {
             id: foundUser.id,
             displayName: foundUser.displayName,
             photoURL: foundUser.photoURL
         }
-
         const currentUserDetails = {
             id: currentUser.uid,
             displayName: currentUser.displayName,
             photoURL: currentUser.photoURL
         }
 
-        updateFollowing(userFollowing, currentUserDetails)
+        // The doIFollow value is checked on the function and depending on the value it will follow or unfollow
+        updateFollowing(userFollowing, currentUserDetails, doIFollow)
     }
 
     const handleFollowersClick = () => {

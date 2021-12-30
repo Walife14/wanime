@@ -3,7 +3,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 // firebase imports
 import { db } from '../firebase/config'
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
-import { arrayUnion, doc, updateDoc } from "firebase/firestore"
+import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore"
 
 // For now this page will only update the user background Image from the user profile page
 
@@ -37,19 +37,34 @@ export const useUpdateProfile = () => {
     // ------------
 
     const updateFollowing = async (newUser, currentUser, followunfollow) => {
-
-        // update current user Following field
-        await updateDoc(userRef, {
-            following: arrayUnion(newUser)
-        })
-
-        // update followed users Followers field
-        // their ref
+        // The ref of the user about to be followed
         const newUserRef = doc(db, 'users', newUser.id)
-        
-        await updateDoc(newUserRef, {
-            followers: arrayUnion(currentUser)
-        })
+
+        // Follow the user
+        if (followunfollow === "Follow") {
+            // update current user Following field
+            await updateDoc(userRef, {
+                following: arrayUnion(newUser)
+            })
+
+            // update followed users Followers field
+            await updateDoc(newUserRef, {
+                followers: arrayUnion(currentUser)
+            })
+        }
+        // Unfollow the user
+        if (followunfollow === "Unfollow") {
+            // update current user Following field
+            await updateDoc(userRef, {
+                following: arrayRemove(newUser)
+            })
+
+            // update followed users Followers field
+            await updateDoc(newUserRef, {
+                followers: arrayRemove(currentUser)
+            })
+        }
+
     }
 
     return { updateUser, updateFollowing }
