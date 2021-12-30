@@ -39,11 +39,20 @@ export const useUpdateProfile = () => {
 
     // ------------
 
-    const updateFollowing = async (newUser) => {
+    const updateFollowing = async (newUser, currentUser) => {
         setError(null)
 
+        // update current user Following field
         await updateDoc(userRef, {
             following: arrayUnion(newUser)
+        })
+
+        // update followed users Followers field
+        // their ref
+        const newUserRef = doc(db, 'users', newUser.id)
+        
+        await updateDoc(newUserRef, {
+            followers: arrayUnion(currentUser)
         })
     }
 

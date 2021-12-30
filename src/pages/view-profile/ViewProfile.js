@@ -25,7 +25,13 @@ export default function ViewProfile() {
             photoURL: foundUser.photoURL
         }
 
-        updateFollowing(userFollowing)
+        const currentUserDetails = {
+            id: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL
+        }
+
+        updateFollowing(userFollowing, currentUserDetails)
     }
 
     const handleFollowersClick = () => {
