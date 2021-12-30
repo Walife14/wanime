@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 
 // firebase imports
@@ -9,7 +8,6 @@ import { arrayUnion, doc, updateDoc } from "firebase/firestore"
 // For now this page will only update the user background Image from the user profile page
 
 export const useUpdateProfile = () => {
-    const [error, setError] = useState(null)
     const { user } = useAuthContext()
 
     const userRef = doc(db, 'users', user.uid)
@@ -18,7 +16,6 @@ export const useUpdateProfile = () => {
     // -----------
 
     const updateUser = async (backgroundImage) => {
-        setError(null)
 
         // Store new "backgroundImage" for user in database
         const uploadPath = `backgroundImages/${user.uid}/${user.displayName}'s background image`   
@@ -39,8 +36,7 @@ export const useUpdateProfile = () => {
 
     // ------------
 
-    const updateFollowing = async (newUser, currentUser) => {
-        setError(null)
+    const updateFollowing = async (newUser, currentUser, followunfollow) => {
 
         // update current user Following field
         await updateDoc(userRef, {
@@ -56,5 +52,5 @@ export const useUpdateProfile = () => {
         })
     }
 
-    return { error, updateUser, updateFollowing }
+    return { updateUser, updateFollowing }
 }

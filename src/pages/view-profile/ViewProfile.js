@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
@@ -14,9 +14,34 @@ export default function ViewProfile() {
     const { document: foundUser } = useDocument('users', id)
     const [showFollowing, setShowFollowing] = useState(false)
     const [showFollowers, setShowFollowers] = useState(false)
-    const { updateFollowing, error } = useUpdateProfile()
+    const [doIFollow, setDoIFollow] = useState("Follow")
+    const { updateFollowing } = useUpdateProfile()
+
+    useEffect(() => {
+
+        // check whether or not current user signed in follows the viewed profile and update doIFollow state
+        if (user) {
+
+            if (user.following.some(e => e.id === id)) {
+                setDoIFollow("Unfollow")
+                console.log("I follow the person with this id...", id)
+            }
+            if (!user.following.some(e => e.id === id)) {
+                setDoIFollow("Follow")
+                console.log("I dont follow the user with this id...", id)
+            }
+
+            // if (user.following.filter(e => e.id === id)) {
+            //     setDoIFollow("Unfollow")
+            // }
+            // if (!user.following.filter(e => e.id === id)) {
+            //     setDoIFollow("Follow")
+            // }
+        }
+    }, [user, id])
 
     const handleFollow = () => {
+
         console.log(user.following)
 
         const userFollowing = {
@@ -48,7 +73,7 @@ export default function ViewProfile() {
                 <>
                     <img src={foundUser.photoURL} alt="" />
                     <span>{foundUser.displayName}</span>
-                    <p onClick={handleFollow}>follow</p>
+                    <p onClick={handleFollow}>{doIFollow}</p>
                     <p onClick={handleFollowersClick}>Followers {foundUser.followers.length}</p>
                     <p onClick={handleFollowingClick}>Following {foundUser.following.length}</p>
                 </>
