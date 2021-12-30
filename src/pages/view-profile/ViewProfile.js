@@ -48,6 +48,21 @@ export default function ViewProfile() {
                 </>
             )}
 
+            {showFollowers && (
+                <div className="show-following-container">
+                    <div>
+                        <span onClick={() => console.log(foundUser.followers)}>Followers</span>
+                        <div onClick={() => setShowFollowers(false)}>x</div>
+                    </div>
+                    {foundUser && foundUser.followers.map(e => (
+                        <div className="following-followers-card" key={e.id}>
+                            <img src={e.photoURL} alt="" />
+                            <span>{e.displayName}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+
             {showFollowing && (
                 <div className="show-following-container">
                     <div>
@@ -55,7 +70,7 @@ export default function ViewProfile() {
                         <div onClick={() => setShowFollowing(false)}>x</div>
                     </div>
                     {foundUser && foundUser.following.map(e => (
-                        <div className="following-followers-card">
+                        <div className="following-followers-card" key={e.id}>
                             <img src={e.photoURL} alt="" />
                             <span>{e.displayName}</span>
                         </div>
