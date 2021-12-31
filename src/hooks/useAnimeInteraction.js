@@ -1,7 +1,7 @@
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore"
 import { db } from "../firebase/config"
 
-export const useLikeAnime = (uid) => {
+export const useAnimeInteraction = (uid) => {
 
     // user ref
     const userRef = doc(db, 'users', uid)
@@ -33,8 +33,22 @@ export const useLikeAnime = (uid) => {
         await updateDoc(userRef, {
             likedAnime: arrayRemove(animeObj)
         })
+    }
 
+    const addToWatchlist = async (id, title, thumbnail, squareThumbnail) => {
+        console.log("Anime added to watchlist")
+
+        let animeObj = {
+            id,
+            title,
+            thumbnail,
+            squareThumbnail
+        }
+
+        await updateDoc(userRef, {
+            watchlist: arrayUnion(animeObj)
+        })
     }
     
-    return { likeAnime, dislikeAnime }
+    return { likeAnime, dislikeAnime, addToWatchlist }
 }

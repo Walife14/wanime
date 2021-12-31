@@ -20,6 +20,15 @@
     overflow: hidden;
     background: var(--primary-color);
 }
+.profile-header-change-bg-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+.profile-header:hover .profile-header-change-bg-btn {
+    display: block;
+}
 .profile-header img {
     width: 100%;
     bottom: 0;
@@ -47,9 +56,16 @@
     font-size: 32px;
     font-weight: bold;
 }
-.profile-header-content button {
+.profile-header-content ul {
+    display: flex;
     margin-left: auto;
 }
+.profile-header-content li {
+    margin-left: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .profile-header-form {
     margin-bottom: 25px;
     display: flex;

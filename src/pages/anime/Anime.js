@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
-import { useLikeAnime } from '../../hooks/useLikeAnime'
+import { useAnimeInteraction } from '../../hooks/useAnimeInteraction'
 
 // components
 import AnimeComments from './AnimeComments.js'
@@ -17,17 +17,23 @@ export default function Anime() {
     const { user } = useAuthContext()
     const { document: anime } = useDocument('animes', id)
     const { document: currentUser } = useDocument('users', user.uid)
-    const { likeAnime, dislikeAnime } = useLikeAnime(user.uid)
+    const { likeAnime, dislikeAnime, addToWatchlist } = useAnimeInteraction(user.uid)
     const [liked, setLiked] = useState('')
 
-    const handleLike = (e) => {
-        if(currentUser) {
+    const handleLike = () => {
+        if (currentUser) {
             if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
                 dislikeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
             }
             else {
                 likeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
             }
+        }
+    }
+
+    const handleAddToWatchlist = () => {
+        if (currentUser) {
+            addToWatchlist(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
         }
     }
 
@@ -64,11 +70,16 @@ export default function Anime() {
                             </>
                         )}
                     </div>
-                    {anime &&
-                        <div className="anime-profile-description-container">
-                            <p>{anime.description}</p>
-                        </div>
-                    }
+                    {anime && (
+                        <>
+                            <div className="anime-profile-description-container">
+                                <p>{anime.description}</p>
+                            </div>
+                            <div>
+                                <p onClick={() => handleAddToWatchlist()}>Add anime to watchlist</p>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
             <div className="anime-where-to-watch-container">
@@ -80,19 +91,19 @@ export default function Anime() {
                     {/* create a modal for whenever a user clicks an image */}
                     {anime && (
                         <>
-                        <div>
-                            <img
-                                onClick={e => console.log(e.target.src)}
-                                src={anime.thumbnail}
-                                alt={`${anime.title}'s thumbnail`}
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={anime.squareThumbnail}
-                                alt={`${anime.title}'s square thumbnail`}
-                            />
-                        </div>
+                            <div>
+                                <img
+                                    onClick={e => console.log(e.target.src)}
+                                    src={anime.thumbnail}
+                                    alt={`${anime.title}'s thumbnail`}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src={anime.squareThumbnail}
+                                    alt={`${anime.title}'s square thumbnail`}
+                                />
+                            </div>
                         </>
                     )}
                 </div>

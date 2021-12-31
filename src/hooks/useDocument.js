@@ -25,9 +25,6 @@ const [document, setDocument] = useState(null)
         return () => unsub()
 
     }, [c, q])
-
-
-
     
     return { document }
 }

@@ -48,6 +48,10 @@ export default function ProfileHeader({ user, currentUser }) {
                         />
                     }
                 </div>
+                <button
+                    className="btn profile-header-change-bg-btn"
+                    onClick={() => setDisplayHeaderForm(true)}
+                >Change Profile Background</button>
                 <div className="profile-header-content">
                     <img
                         src={user.photoURL}
@@ -56,10 +60,18 @@ export default function ProfileHeader({ user, currentUser }) {
                     <div>
                         <span>{user.displayName}</span>
                     </div>
-                    <button
-                        className="btn"
-                        onClick={() => setDisplayHeaderForm(true)}
-                    >Change Profile Background</button>
+                    {currentUser &&
+                        <ul>
+                            <li>
+                                <span>{currentUser.followers.length}</span>
+                                <p>Followers</p>
+                            </li>
+                            <li>
+                                <span>{currentUser.following.length}</span>
+                                <p>Following</p>
+                            </li>
+                        </ul>
+                    }
                 </div>
 
                 {/* <img
