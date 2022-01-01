@@ -4,6 +4,8 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
 import { useUpdateProfile } from '../../hooks/useUpdateProfile'
 
+// components
+
 // styles
 import './ViewProfile.css'
 
@@ -95,7 +97,6 @@ export default function ViewProfile() {
                     ))}
                 </div>
             )}
-
         </div>
     )
 }

@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { useUpdateProfile } from '../../hooks/useUpdateProfile'
 
+// components
+import Popup from '../../components/FollowUnfollowPopup'
+
 export default function ProfileHeader({ user, currentUser }) {
     const [displayHeaderForm, setDisplayHeaderForm] = useState(false)
     const [backgroundImage, setBackgroundImage] = useState('')
     const [backgroundImageError, setBackgroundImageError] = useState('')
     const { updateUser, error } = useUpdateProfile()
+    const [popupTrigger, setPopupTrigger] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -66,22 +70,13 @@ export default function ProfileHeader({ user, currentUser }) {
                                 <span>{currentUser.followers.length}</span>
                                 <p>Followers</p>
                             </li>
-                            <li>
+                            <li onClick={() => setPopupTrigger(true)}>
                                 <span>{currentUser.following.length}</span>
                                 <p>Following</p>
                             </li>
                         </ul>
                     }
                 </div>
-
-                {/* <img
-                    className="profile-img"
-                    src={user.photoURL}
-                    alt={`${user.displayName}'s thumbnail`}
-                />
-                <div className="profile-info">
-                    <h2>{user.displayName}</h2>
-                </div> */}
 
             </div>
             {displayHeaderForm && (
@@ -103,6 +98,17 @@ export default function ProfileHeader({ user, currentUser }) {
                     {error && <p>{error}</p>}
                 </form>
             )}
+            <Popup trigger={popupTrigger} setPopupTrigger={setPopupTrigger}>
+                <h3>Following</h3>
+                <ul>
+                    {currentUser && currentUser.following.map(e => (
+                            <li key={e.id}>
+                                <img src={e.photoURL} alt="" />
+                                <span>{e.displayName}</span>
+                            </li>
+                    ))}
+                </ul>
+            </Popup>
         </>
     )
 }

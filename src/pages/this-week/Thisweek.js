@@ -41,7 +41,7 @@ export default function ThisWeek() {
                         <img src={anime.squareThumbnail} alt={`${anime.title} thumbnail`} className="anime-card-img" />
                         <div className="anime-card-text-container">
                             <span>{anime.title}</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, iusto!</p>
+                            <p>{anime.description}</p>
                         </div>
                     </Link>
                 ))}

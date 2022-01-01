@@ -18,6 +18,7 @@ export default function Anime() {
     const { document: anime } = useDocument('animes', id)
     const { document: currentUser } = useDocument('users', user.uid)
     const { likeAnime, dislikeAnime, addToWatchlist } = useAnimeInteraction(user.uid)
+    const { watchlistCheck, setWatchlistCheck } = useState('')
     const [liked, setLiked] = useState('')
 
     const handleLike = () => {
@@ -38,7 +39,7 @@ export default function Anime() {
     }
 
     useEffect(() => {
-        if(currentUser) {
+        if (currentUser) {
             if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
                 setLiked('liked')
             }
@@ -46,7 +47,16 @@ export default function Anime() {
                 setLiked('not liked!')
             }
         }
-    }, [currentUser, anime])
+
+        if (currentUser) {
+            // if (currentUser.watchlist.filter(e => e.id === id)) {
+            //     setWatchlistCheck("Remove this anime from watchlist")
+            // }
+            console.log(currentUser.watchlist.filter(e => e.id === id))
+            
+        }
+
+    }, [currentUser, anime, id])
 
     return (
         <div className="anime-container">
