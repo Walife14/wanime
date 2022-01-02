@@ -10,10 +10,21 @@ export default function ProfileHeader({ user, currentUser }) {
     const [backgroundImageError, setBackgroundImageError] = useState('')
     const { updateUser, error } = useUpdateProfile()
     const [popupTrigger, setPopupTrigger] = useState(false)
+    const [followingFollowers, setFollowingFollowers] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
         updateUser(backgroundImage)
+    }
+
+    const handleDisplayFollow = (FollowingOrFollowers) => {
+        setPopupTrigger(true)
+        if (FollowingOrFollowers === "Followers") {
+            setFollowingFollowers("Followers")
+        }
+        else if (FollowingOrFollowers === "Following") {
+            setFollowingFollowers("Following")
+        }
     }
 
     const handleFileChange = (e) => {
@@ -66,11 +77,11 @@ export default function ProfileHeader({ user, currentUser }) {
                     </div>
                     {currentUser &&
                         <ul>
-                            <li>
+                            <li onClick={() => handleDisplayFollow("Followers")}>
                                 <span>{currentUser.followers.length}</span>
                                 <p>Followers</p>
                             </li>
-                            <li onClick={() => setPopupTrigger(true)}>
+                            <li onClick={() => handleDisplayFollow("Following")}>
                                 <span>{currentUser.following.length}</span>
                                 <p>Following</p>
                             </li>
@@ -99,15 +110,25 @@ export default function ProfileHeader({ user, currentUser }) {
                 </form>
             )}
             <Popup trigger={popupTrigger} setPopupTrigger={setPopupTrigger}>
-                <h3>Following</h3>
-                <ul>
-                    {currentUser && currentUser.following.map(e => (
-                            <li key={e.id}>
-                                <img src={e.photoURL} alt="" />
-                                <span>{e.displayName}</span>
-                            </li>
-                    ))}
-                </ul>
+                {popupTrigger && (
+                    <>
+                        <h3>{followingFollowers}</h3>
+                        <ul>
+                            {followingFollowers === "Following" && currentUser && currentUser.following.map(e => (
+                                <li key={e.id}>
+                                    <img src={e.photoURL} alt="" />
+                                    <span>{e.displayName}</span>
+                                </li>
+                            ))}
+                            {followingFollowers === "Followers" && currentUser && currentUser.followers.map(e => (
+                                <li key={e.id}>
+                                    <img src={e.photoURL} alt="" />
+                                    <span>{e.displayName}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                )}
             </Popup>
         </>
     )

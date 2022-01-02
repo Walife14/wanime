@@ -48,7 +48,8 @@ export const useSignup = () => {
                                     likedAnime: [],
                                     backgroundImage: null,
                                     followers: [],
-                                    following: []
+                                    following: [],
+                                    watchlist: []
                                 })
                             })
                     })
