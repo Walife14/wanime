@@ -19,15 +19,19 @@
 .fu-popup-inner h3 {
     font-size: 32px;
 }
-.fu-popup-inner li {
+.fu-popup-inner li a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
     display: flex; align-items: center;
     padding: 5px;
     box-sizing: border-box;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #545454;
     box-sizing: border-box;
 }
-.fu-popup-inner li:last-child {
-    border-bottom: none;
+.fu-popup-inner li a:hover {
+    background: skyblue;
+    transition: background 50ms linear;
 }
 .fu-popup-inner li img {
     height: 75px;

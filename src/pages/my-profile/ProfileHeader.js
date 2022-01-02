@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useUpdateProfile } from '../../hooks/useUpdateProfile'
 
 // components
@@ -116,14 +117,18 @@ export default function ProfileHeader({ user, currentUser }) {
                         <ul>
                             {followingFollowers === "Following" && currentUser && currentUser.following.map(e => (
                                 <li key={e.id}>
-                                    <img src={e.photoURL} alt="" />
-                                    <span>{e.displayName}</span>
+                                    <Link to={`/profile/${e.id}`}>
+                                        <img src={e.photoURL} alt="" />
+                                        <span>{e.displayName}</span>
+                                    </Link>
                                 </li>
                             ))}
                             {followingFollowers === "Followers" && currentUser && currentUser.followers.map(e => (
                                 <li key={e.id}>
-                                    <img src={e.photoURL} alt="" />
-                                    <span>{e.displayName}</span>
+                                    <Link to={`/profile/${e.id}`}>
+                                        <img src={e.photoURL} alt="" />
+                                        <span>{e.displayName}</span>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
