@@ -12,6 +12,9 @@
     width: 80%; max-width: 480px;
     background: #fff;
     padding: 16px;
+    height: 500px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 .fu-popup-inner h3 {
     font-size: 32px;
@@ -20,7 +23,11 @@
     display: flex; align-items: center;
     padding: 5px;
     box-sizing: border-box;
-    background: rgba(0,0,0,0.5);
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+.fu-popup-inner li:last-child {
+    border-bottom: none;
 }
 .fu-popup-inner li img {
     height: 75px;
