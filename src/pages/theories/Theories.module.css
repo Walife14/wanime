@@ -1,0 +1,22 @@
+
+.top-3-theories-container {
+    background: var(--primary-color);
+    max-width: 1280px;
+    margin: 25px auto;
+    display: flex;
+}
+.top-3-theories-option {
+    position: relative;
+    display: flex; align-items: center;
+    height: 250px;
+    overflow: hidden;
+}
+.top-3-theories-option p {
+    z-index: 1;
+}
+.top-3-theories-option img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 10%;
+}

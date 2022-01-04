@@ -81,33 +81,34 @@
 
 /* Liked and Watchlist section */
 
-.liked-watchlist-container {
+.my-profile-container {
     display: flex;
     justify-content: space-between;
     padding: 25px;
     background: var(--primary-color);
     border-radius: 5px;
+    margin-bottom: 25px;
 }
-.liked-watchlist-container div {
+.my-profile-container div {
     display: flex;
     flex-direction: column;
     height: 200px;
     width: 49%;
 }
-.liked-watchlist-container div ul {
+.my-profile-container div ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex: 1;
 }
-.liked-watchlist-container div ul li {
+.my-profile-container div ul li {
     max-height: 150px; max-width: 150px;
     overflow: hidden;
     display: flex;
     align-items: center;
 }
-.liked-watchlist-container div ul li a {
+.my-profile-container div ul li a {
     max-width: 125px; max-height: 125px;
 }
-.liked-watchlist-container div ul li a img {
+.my-profile-container div ul li a img {
     max-width: 125px;
 }

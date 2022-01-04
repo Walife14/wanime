@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function ProfileLikedWatchlist({ currentUser }) {
 
     return (
-        <div className="liked-watchlist-container">
+        <div className="my-profile-container">
             <div>
                 <span className="s-title">Liked Anime</span>
                 <ul>

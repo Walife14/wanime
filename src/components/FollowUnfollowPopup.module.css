@@ -30,7 +30,7 @@
     box-sizing: border-box;
 }
 .fu-popup-inner li a:hover {
-    background: skyblue;
+    background: var(--secondary-color);
     transition: background 50ms linear;
 }
 .fu-popup-inner li img {

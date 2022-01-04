@@ -4,6 +4,7 @@ import { useDocument } from '../../hooks/useDocument'
 // components
 import ProfileHeader from './ProfileHeader'
 import ProfileLikedWatchlist from './ProfileLikedWatchlist'
+import ProfileTheories from './ProfileTheories'
 
 // styles
 import './MyProfile.css'
@@ -16,6 +17,7 @@ export default function MyProfile() {
         <div className="profile-container">
             <ProfileHeader user={user} currentUser={currentUser} />
             <ProfileLikedWatchlist currentUser={currentUser} />
+            <ProfileTheories currentUser={currentUser} />
         </div>
     )
 }
