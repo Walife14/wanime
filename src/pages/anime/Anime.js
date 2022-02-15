@@ -18,7 +18,7 @@ export default function Anime() {
     const { document: anime } = useDocument('animes', id)
     const { document: currentUser } = useDocument('users', user.uid)
     const { likeAnime, dislikeAnime, addToWatchlist } = useAnimeInteraction(user.uid)
-    const { watchlistCheck, setWatchlistCheck } = useState('')
+    // const { watchlistCheck, setWatchlistCheck } = useState('')
     const [liked, setLiked] = useState('')
 
     const handleLike = () => {
@@ -122,7 +122,7 @@ export default function Anime() {
                 Theories
             </div>
             <div>
-                <AnimeComments anime={anime} />
+                <AnimeComments anime={anime} id={id} />
             </div>
         </div>
     )

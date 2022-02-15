@@ -9,38 +9,30 @@ import { doc, deleteDoc } from 'firebase/firestore'
 import TheoriesForm from './TheoriesForm'
 
 // styles
-import styles from './Theories.module.css'
+// import styles from './Theories.module.css'
 
 export default function Theories() {
     const { user } = useAuthContext()
-    // const { documents: theories } = useCollection(
-    //     'theories',
-    //     ['uid', '==', user.uid]
-    // )
+    const { documents: theories } = useCollection(
+        'theories',
+        ['uid', '==', user.uid]
+    )
 
-    // const handleClick = (id) => {
-    //     const docRef = doc(db, 'theories', id)
-    //     deleteDoc(docRef)
-    // }
+    const handleClick = (id) => {
+        const docRef = doc(db, 'theories', id)
+        deleteDoc(docRef)
+    }
 
     return (
-        // <div>
-        //     <ul>
-        //         {theories && theories.map(theory => (
-        //             <li key={theory.id} onClick={() => handleClick(theory.id)}>
-        //                 {theory.title}
-        //             </li>
-        //         ))}
-        //     </ul>
-        //     <TheoriesForm />
-        // </div>
         <div>
-            <div>
-                <ul className={styles['top-3-theories-container']}>
-                    <li className={styles['top-3-theories-option']}>
+            <ul>
+                {theories && theories.map(theory => (
+                    <li key={theory.id} onClick={() => handleClick(theory.id)}>
+                        {theory.title}
                     </li>
-                </ul>
-            </div>
+                ))}
+            </ul>
+            <TheoriesForm />
         </div>
     )
 }

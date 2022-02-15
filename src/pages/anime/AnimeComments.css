@@ -28,3 +28,13 @@
 .anime-comment-form label textarea:focus {
     outline: none;
 }
+
+.anime-comment-remove-btn {
+    background: red;
+    width: 200px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -49,6 +49,17 @@ export const useAnimeInteraction = (uid) => {
             watchlist: arrayUnion(animeObj)
         })
     }
+
+    const removeComment = async (animeRef, commentObj) => {
+        console.log("Trying to delete a comment")
+
+        console.log(commentObj)
+
+        await updateDoc(animeRef, {
+            comments: arrayRemove(commentObj)
+        })
+        
+    }
     
-    return { likeAnime, dislikeAnime, addToWatchlist }
+    return { likeAnime, dislikeAnime, addToWatchlist, removeComment }
 }

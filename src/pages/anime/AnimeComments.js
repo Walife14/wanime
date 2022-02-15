@@ -3,14 +3,20 @@ import { useState } from 'react'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
 import { v4 as uuid } from 'uuid'
+import { useAnimeInteraction } from '../../hooks/useAnimeInteraction'
+
+// firebase
+import { db } from '../../firebase/config'
+import { doc } from 'firebase/firestore'
 
 // styles
 import './AnimeComments.css'
 
-export default function AnimeComments({ anime }) {
+export default function AnimeComments({ anime, id }) {
     const { updateDocument, response } = useFirestore('animes')
     const [newComment, setNewComment] = useState('')
     const { user } = useAuthContext()
+    const { removeComment } = useAnimeInteraction(user.uid)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -29,6 +35,17 @@ export default function AnimeComments({ anime }) {
         }
     }
 
+    const handleRemoveComment = (commentId, content, createdAt, displayName, photoURL) => {
+
+        let animeRef = doc(db, 'animes', id)
+        let commentObj = {
+            id: commentId, content, createdAt, displayName, photoURL
+        }
+
+        removeComment(animeRef, commentObj)
+
+    }
+
     return (
         <>
             <h2>Comments</h2>
@@ -41,6 +58,7 @@ export default function AnimeComments({ anime }) {
                             <p>{comment.displayName}</p>
                             <div>{comment.content}</div>
                         </div>
+                        <div className="anime-comment-remove-btn" onClick={() => handleRemoveComment(comment.id, comment.content, comment.createdAt, comment.displayName, comment.photoURL)}>Remove Comment?</div>
                     </li>
                 ))}
             </ul>
