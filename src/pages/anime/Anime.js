@@ -110,12 +110,6 @@ export default function Anime() {
                                     alt={`${anime.title}'s thumbnail`}
                                 />
                             </div>
-                            <div>
-                                <img
-                                    src={anime.squareThumbnail}
-                                    alt={`${anime.title}'s square thumbnail`}
-                                />
-                            </div>
                         </>
                     )}
                 </div>
