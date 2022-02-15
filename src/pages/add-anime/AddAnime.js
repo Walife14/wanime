@@ -12,13 +12,12 @@ export default function AddAnime() {
     const [thumbnailSquare, setThumbnailSquare] = useState('')
     const [thumbnailSquareError, setThumbnailSquareError] = useState('')
     const [releaseDate, setReleaseDate] = useState('')
-    const [description, setDescription] = useState('')
     const { error, newAnime } = useNewAnime(null)
     const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        newAnime(title, thumbnail, thumbnailSquare, releaseDate, description)
+        newAnime(title, thumbnail, thumbnailSquare, releaseDate)
         // make this push go to the specific anime in the future
         history.push("/")
     }
@@ -109,14 +108,6 @@ export default function AddAnime() {
                     required
                 />
             <label>
-            <label>
-                <span>Description</span>
-                <textarea
-                    onChange={e => setDescription(e.target.value)}
-                    value={description}
-                    required
-                ></textarea>
-            </label>
             </label>
             <button>Signup</button>
             {error && <p>{error}</p>}

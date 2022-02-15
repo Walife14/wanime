@@ -42,9 +42,6 @@
 .anime-profile-header small {
     margin-left: 20px;
 }
-.anime-profile-description-container {
-    width: 50%;
-}
 
 .anime-where-to-watch-container, .anime-gallery-container {
     height: 200px;
@@ -62,4 +59,15 @@
 .anime-gallery-container img {
     height: 150px;
     margin: 0 12.5px;
+}
+
+/* Anime Description */
+
+.anime-description {
+    background: rgba(128, 128, 128, 0.4);
+    padding: 5px;
+}
+.anime-description span {
+    display: block;
+    text-align: right;
 }

@@ -54,7 +54,10 @@ export const useSignup = () => {
                             })
                     })
                     .then(() => {
-                        dispatch({ type: 'LOGIN', payload: res.user })
+                        // setTimeout in order to give time for the user profile to be updated
+                        setTimeout(() => {
+                            dispatch({ type: 'LOGIN', payload: res.user })
+                        }, 1000)
                     })
             })
             .catch((err) => {

@@ -40,7 +40,7 @@ export const useNewAnime = () => {
                                     title,
                                     squareThumbnail,
                                     releaseDate,
-                                    description,
+                                    descriptions: [],
                                     comments: []
                                 })
                             })

@@ -30,6 +30,13 @@ export default function AnimeDescription({ descriptions, anime }) {
 
     return (
         <>
+            {descriptions && descriptions.length > 0 && (
+                <p className="anime-description">
+                    {descriptions[0].description}
+                    <span onClick={() => console.log("Need to add link to a page with more user descriptions about this anime")}>More Descriptions</span>
+                    <span>Written by: {descriptions[0].displayName}</span>
+                </p>
+            )}
             {descriptions && descriptions.length === 0 && (
                 <p>There are no descriptions yet!</p>
             )}
@@ -39,7 +46,7 @@ export default function AnimeDescription({ descriptions, anime }) {
                 </>
             )}
             {toggle && (
-                <form onSubmit={handleSubmit} className="anime-comment-form">
+                <form onSubmit={handleSubmit}>
                     <label>
                         <span>Add new description:</span>
                         <textarea

@@ -13,7 +13,7 @@ export default function DiscoverAnime() {
     const { documents: animes } = useCollection('animes')
 
     const changeAnime = useCallback(() => {
-        if (animes) {
+        if (animes && animes.length > 0) {
             const i = Math.floor(Math.random() * animes.length)
             return setDiscoveredAnime(animes[i].thumbnail)
         }
