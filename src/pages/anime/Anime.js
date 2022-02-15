@@ -6,6 +6,7 @@ import { useAnimeInteraction } from '../../hooks/useAnimeInteraction'
 
 // components
 import AnimeComments from './AnimeComments.js'
+import AnimeDescription from './AnimeDescription'
 
 // styles
 import './Anime.css'
@@ -83,7 +84,8 @@ export default function Anime() {
                     {anime && (
                         <>
                             <div className="anime-profile-description-container">
-                                <p>{anime.description}</p>
+                                {/* <p>{anime.description}</p> */}
+                                <AnimeDescription descriptions={anime.descriptions} anime={anime} />
                             </div>
                             <div>
                                 <p onClick={() => handleAddToWatchlist()}>Add anime to watchlist</p>

@@ -33,22 +33,41 @@ export const useFirestore = (c) => {
     }
   }
 
-  // update documents
+  // update documents comments
   const updateDocument = async (id, updates) => {
     dispatch({ type: 'IS_PENDING' })
 
     const ref = doc(db, c, id)
 
     try {
-        const updatedDocument = await updateDoc(ref, {
-            comments: arrayUnion(updates)
-        })
-        dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument})
-        return updatedDocument
+      const updatedDocument = await updateDoc(ref, {
+          comments: arrayUnion(updates)
+      })
+      dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument})
+      return updatedDocument
     }
     catch (err) {
-        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
-        return null
+      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+      return null
+    }
+  }
+
+  // update document descriptions
+  const updateDocumentDescriptions = async (id, updates) => {
+    dispatch({ type: 'IS_PENDING' })
+
+    const ref = doc(db, c, id)
+
+    try {
+      const updatedDocument = await updateDoc(ref, {
+        descriptions: arrayUnion(updates)
+      })
+      dispatchIfNotCancelled({ type: 'UPDATED_DOCUMENT', payload: updatedDocument})
+      return updatedDocument
+    }
+    catch (err) {
+      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
+      return null
     }
   }
 
@@ -56,6 +75,6 @@ export const useFirestore = (c) => {
     return () => setIsCancelled(true)
   }, [])
 
-  return { updateDocument, response }
+  return { updateDocument, updateDocumentDescriptions, response }
 
 }
