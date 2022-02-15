@@ -11,8 +11,7 @@ export const useAnimeInteraction = (uid) => {
         let animeObj = {
             id,
             title,
-            thumbnail,
-            squareThumbnail
+            thumbnail
         }
 
         await updateDoc(userRef, {
@@ -26,8 +25,7 @@ export const useAnimeInteraction = (uid) => {
         let animeObj = {
             id,
             title,
-            thumbnail,
-            squareThumbnail
+            thumbnail
         }
 
         await updateDoc(userRef, {
@@ -41,8 +39,7 @@ export const useAnimeInteraction = (uid) => {
         let animeObj = {
             id,
             title,
-            thumbnail,
-            squareThumbnail
+            thumbnail
         }
 
         await updateDoc(userRef, {

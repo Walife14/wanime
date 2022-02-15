@@ -19,23 +19,22 @@ export default function Anime() {
     const { document: anime } = useDocument('animes', id)
     const { document: currentUser } = useDocument('users', user.uid)
     const { likeAnime, dislikeAnime, addToWatchlist } = useAnimeInteraction(user.uid)
-    // const { watchlistCheck, setWatchlistCheck } = useState('')
     const [liked, setLiked] = useState('')
 
     const handleLike = () => {
         if (currentUser) {
             if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
-                dislikeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
+                dislikeAnime(anime.id, anime.title, anime.thumbnail)
             }
             else {
-                likeAnime(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
+                likeAnime(anime.id, anime.title, anime.thumbnail)
             }
         }
     }
 
     const handleAddToWatchlist = () => {
         if (currentUser) {
-            addToWatchlist(anime.id, anime.title, anime.thumbnail, anime.squareThumbnail)
+            addToWatchlist(anime.id, anime.title, anime.thumbnail)
         }
     }
 
