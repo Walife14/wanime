@@ -16,7 +16,7 @@ export default function ProfileLikedWatchlist({ currentUser }) {
                         <li key={x.id}>
                             <Link to={`/anime/${x.id}`} className="fav-watchlist-option">
                                 <img
-                                    src={x.squareThumbnail}
+                                    src={x.thumbnail}
                                     alt={`${currentUser.displayName}'s liked anime`}
                                     className="fav-watchlist-thumbnail"
                                 />
@@ -39,7 +39,7 @@ export default function ProfileLikedWatchlist({ currentUser }) {
                         <li key={x.id}>
                             <Link to={`anime/${x.id}`} className="fav-watchlist-option">
                                 <img
-                                    src={x.squareThumbnail}
+                                    src={x.thumbnail}
                                     alt={`${currentUser.displayName}'s watchlist anime`}
                                     className="fav-watchlist-thumbnail"
                                 />

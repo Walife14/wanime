@@ -92,22 +92,17 @@
 .my-profile-container div {
     display: flex;
     flex-direction: column;
-    height: 200px;
     width: 49%;
 }
 .my-profile-container div ul {
     display: flex;
     justify-content: space-evenly;
+    height: 200px;
     flex: 1;
 }
 .my-profile-container div ul li {
-    max-height: 150px; max-width: 150px;
-    overflow: hidden;
     display: flex;
     align-items: center;
-}
-.my-profile-container div ul li a {
-    max-width: 125px; max-height: 125px;
 }
 .my-profile-container div ul li a img {
     max-width: 125px;
