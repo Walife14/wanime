@@ -1,62 +1,28 @@
 .this-week-container {
+    width: 1280px;
+    margin: 0 auto; margin-top: 50px;
 }
-.top-3-container {
+.this-week-container h1 {
+    text-align: center;
 }
-.top-3-list {
-    width: 60%;
-    margin: 25px auto;
+
+.this-week-container ul {
+    margin-top: 50px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
-.top-3-option {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.top-anime-img {
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    height: 150px;
-}
-.anime-list-container {
-    position: relative;
-}
-.anime-card {
-    position: relative;
-    background: var(--primary-color);
-    width: 60%;
-    margin: 0 auto 25px auto;
-    display: flex;
-    height: 150px;
-    overflow: hidden;
-    padding: 5px;
-    box-sizing: border-box;
-    transition: background 200ms linear;
-}
-.anime-card:hover {
-    background: var(--secondary-color);
-}
-.anime-card a {
-    height: 100%;
-    width: 100%;
-}
-.anime-card img {
-    height: 100%;
-}
-.anime-card-text-container {
-    padding: 10px;
-}
-.anime-card-text-container span {
-    font-weight: bold;
-    font-size: 22px;
-}
-.anime-card-see-more {
-    width: 200px;
+.this-week-container ul li {
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(182, 50, 50);
+    margin-bottom: 50px;
+}
+.this-week-container ul li a {
+    height: 250px;
+    width: 167px;
+}
+.this-week-container ul li a img {
+    height: 100%;
+    width: 167px;
 }
