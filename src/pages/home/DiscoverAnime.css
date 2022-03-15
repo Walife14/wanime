@@ -16,6 +16,12 @@
     align-items: center;
     flex: 1;
 }
+.discover-anime-container ul li:nth-child(2) {
+    position: relative;
+}
+.discover-anime-container ul li:nth-child(2) img  {
+    position: absolute;
+}
 .discover-anime-container ul li p {
     text-align: justify;
     padding: 12.5px 0;
