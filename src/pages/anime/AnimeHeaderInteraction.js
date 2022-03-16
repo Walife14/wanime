@@ -19,7 +19,7 @@ export default function AnimeHeaderInteraction({ anime, user }) {
                 setIsLiked('Like')
             }
         }
-    }, [currentUser])
+    }, [currentUser, anime.id])
 
     const handleLike = () => {
         if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {

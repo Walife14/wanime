@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { Timestamp } from 'firebase/firestore'
 import { useFirestore } from '../../hooks/useFirestore'
@@ -15,13 +15,6 @@ export default function AnimeListComments({ anime, id }) {
     const { user } = useAuthContext()
     const { updateDocument, response } = useFirestore('animes')
     const [newComment, setNewComment] = useState('')
-
-    useEffect(() => {
-        if (user) {
-            console.log("we have a user")
-            console.log(user)
-        }
-    }, [user])
 
     // Submit Comment
     const handleSubmit = async (e) => {
