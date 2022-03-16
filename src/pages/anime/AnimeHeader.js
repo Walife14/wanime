@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useFirestore } from '../../hooks/useFirestore'
 import { Timestamp } from 'firebase/firestore'
 import { v4 as uuid } from 'uuid'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 // components
 import FormModal from '../../components/FormModal'
@@ -44,8 +45,8 @@ export default function AnimeHeader({ anime }) {
     }
 
     useEffect(() => {
-        console.log(user)
-    }, [user])
+        console.log(anime.descriptions[0].createdAt.toDate())
+    }, [anime])
 
     return (
         <>
@@ -60,7 +61,7 @@ export default function AnimeHeader({ anime }) {
                     {anime.descriptions.length > 0 && (
                         <>
                             <p>{anime.descriptions[0].description}</p>
-                            <p>Created [date] By: <Link to={`/profile/${anime.descriptions[0].createdBy.uid}`}><b>{anime.descriptions[0].createdBy.displayName}</b></Link></p>
+                            <p>Description created {formatDistanceToNow(anime.descriptions[0].createdAt.toDate(), { addSuffix: true })} by <Link to={`/profile/${anime.descriptions[0].createdBy.uid}`}><b>{anime.descriptions[0].createdBy.displayName}</b></Link></p>
                             <p>View All Descriptions</p>
                         </>
                     )}
