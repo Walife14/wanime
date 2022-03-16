@@ -18,10 +18,6 @@ export default function AnimeHeader({ anime }) {
     const { updateDocumentDescriptions, response } = useFirestore('animes')
     const [formModalTrigger, setFormModalTrigger] = useState(false)
     const [newDescription, setNewDescription] = useState('')
-    
-    useEffect(() => {
-        console.log(anime.descriptions[0])
-    }, [anime.descriptions])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -43,10 +39,6 @@ export default function AnimeHeader({ anime }) {
             setNewDescription('')
         }
     }
-
-    useEffect(() => {
-        console.log(anime.descriptions[0].createdAt.toDate())
-    }, [anime])
 
     return (
         <>
