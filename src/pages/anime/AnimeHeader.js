@@ -1,13 +1,11 @@
-import { useEffect } from 'react'
+import AnimeHeaderInteraction from './AnimeHeaderInteraction'
 
 // styles
 import './Anime.css'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 export default function AnimeHeader({ anime }) {
-
-    useEffect(() => {
-        console.log(anime)
-    }, [anime])
+    const { user } = useAuthContext()
 
     return (
         <>
@@ -19,11 +17,9 @@ export default function AnimeHeader({ anime }) {
                     <p>Description... <span>By: Creators Name</span></p>
                 </div>
             </div>
-            <div className="anime-page-header-interact">
-                <span>Like</span>
-                <span>Add To Watchlist</span>
-                <span>Rating</span>
-            </div>
+            {user && (
+                <AnimeHeaderInteraction anime={anime} user={user} />
+            )}
         </>
     )
 }

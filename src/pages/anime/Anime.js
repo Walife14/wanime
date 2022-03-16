@@ -1,5 +1,4 @@
 
-import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDocument } from '../../hooks/useDocument'
 
@@ -13,9 +12,6 @@ import AnimeListComments from './AnimeListComments'
 export default function Anime() {
     const { id } = useParams()
     const { document: anime } = useDocument('animes', id)
-    
-    useEffect(() => {
-    }, [])
 
     return (
         <>
