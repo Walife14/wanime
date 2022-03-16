@@ -1,124 +1,33 @@
-import { useEffect, useState } from 'react'
+
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useAuthContext } from '../../hooks/useAuthContext'
 import { useDocument } from '../../hooks/useDocument'
-import { useAnimeInteraction } from '../../hooks/useAnimeInteraction'
 
 // components
-import AnimeComments from './AnimeComments.js'
-import AnimeDescription from './AnimeDescription'
-
-// styles
-import './Anime.css'
-
-// I need to use a live collection listener to the liked and disliked anime
+import AnimeHeader from './AnimeHeader'
+import WhereToWatch from './WhereToWatch'
+import Gallery from './AnimeGallery'
+import AnimeListComments from './AnimeListComments'
+// import AnimeComments from './AnimeComments'
 
 export default function Anime() {
     const { id } = useParams()
-    const { user } = useAuthContext()
     const { document: anime } = useDocument('animes', id)
-    const { document: currentUser } = useDocument('users', user.uid)
-    const { likeAnime, dislikeAnime, addToWatchlist } = useAnimeInteraction(user.uid)
-    const [liked, setLiked] = useState('')
-
-    const handleLike = () => {
-        if (currentUser) {
-            if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
-                dislikeAnime(anime.id, anime.title, anime.thumbnail)
-            }
-            else {
-                likeAnime(anime.id, anime.title, anime.thumbnail)
-            }
-        }
-    }
-
-    const handleAddToWatchlist = () => {
-        if (currentUser) {
-            addToWatchlist(anime.id, anime.title, anime.thumbnail)
-        }
-    }
-
+    
     useEffect(() => {
-        if (currentUser) {
-            if(currentUser.likedAnime.filter(e => e.id === anime.id).length > 0) {
-                setLiked('liked')
-            }
-            else {
-                setLiked('not liked!')
-            }
-        }
-
-        if (currentUser) {
-            // if (currentUser.watchlist.filter(e => e.id === id)) {
-            //     setWatchlistCheck("Remove this anime from watchlist")
-            // }
-            console.log(currentUser.watchlist.filter(e => e.id === id))
-            
-        }
-
-    }, [currentUser, anime, id])
+    }, [])
 
     return (
-        <div className="anime-container">
-            <div className="anime-profile">
-                <div className="anime-profile-thumb">
-                    {anime && (
-                        <>
-                            <img className="anime-thumbnail" src={anime.thumbnail} alt={`${anime.title} thumbnail`} />
-                            <span className="anime-thumbnail-like" alt="Anime like button" onClick={handleLike}>
-                                {anime && <>{liked}</>}
-                            </span>
-                        </>
-                    )}
+        <>
+            {anime && (
+                <div className="anime-page-container">
+                    <AnimeHeader anime={anime} />
+                    <WhereToWatch />
+                    <Gallery anime={anime} />
+                    <AnimeListComments anime={anime} id={id} />
+                    {/* <AnimeComments anime={anime} id={id} /> */}
                 </div>
-                <div className="anime-profile-content">
-                    <div className="anime-profile-header">
-                        {anime && (
-                            <>
-                                <h2>{anime.title}</h2>
-                                <small>Released: {anime.releaseDate}</small>
-                            </>
-                        )}
-                    </div>
-                    {anime && (
-                        <>
-                            <div className="anime-profile-description-container">
-                                {/* <p>{anime.description}</p> */}
-                                <AnimeDescription descriptions={anime.descriptions} anime={anime} />
-                            </div>
-                            <div>
-                                <p onClick={() => handleAddToWatchlist()}>Add anime to watchlist</p>
-                            </div>
-                        </>
-                    )}
-                </div>
-            </div>
-            <div className="anime-where-to-watch-container">
-                <span>Where to Watch</span>
-            </div>
-            <div className="anime-gallery-container">
-                <span>Anime Gallery</span>
-                <div>
-                    {/* create a modal for whenever a user clicks an image */}
-                    {anime && (
-                        <>
-                            <div>
-                                <img
-                                    onClick={e => console.log(e.target.src)}
-                                    src={anime.thumbnail}
-                                    alt={`${anime.title}'s thumbnail`}
-                                />
-                            </div>
-                        </>
-                    )}
-                </div>
-            </div>
-            <div>
-                Theories
-            </div>
-            <div>
-                <AnimeComments anime={anime} id={id} />
-            </div>
-        </div>
+            )}
+        </>
     )
 }

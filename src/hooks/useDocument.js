@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react"
 import { db } from "../firebase/config"
 
 export const useDocument = (c, _q) => {
-const [document, setDocument] = useState(null)
+    
+    const [document, setDocument] = useState(null)
 
     const q = useRef(_q).current
 

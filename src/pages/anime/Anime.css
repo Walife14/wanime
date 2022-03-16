@@ -1,4 +1,4 @@
-.anime-container {
+/* .anime-container {
     min-width: 1280px;
     max-width: 1280px;
     margin: 50px auto;
@@ -63,11 +63,61 @@
 
 /* Anime Description */
 
-.anime-description {
+/* .anime-description {
     background: rgba(128, 128, 128, 0.4);
     padding: 5px;
 }
 .anime-description span {
     display: block;
     text-align: right;
+} */
+
+.anime-page-container {
+    width: 1280px; max-width: 1280px;
+    margin: 25px auto 0 auto;
+}
+
+/* Header Section */
+.anime-page-header {
+    display: flex;
+}
+.anime-page-header img {
+    height: 450px;
+}
+.anime-page-header > div {
+    margin: 25px;
+    flex: 1;
+}
+
+.anime-page-header-interact {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.anime-page-header-interact span {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Where To Watch Section */
+.anime-page-wtw, .anime-page-gallery {
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 25px 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* Gallery Section */
+
+.anime-page-gallery div {
+    display: flex;
+    align-items: center;
+}
+.anime-page-gallery img {
+    height: 150px;
+    margin: 0 12.5px;
 }
