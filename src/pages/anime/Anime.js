@@ -25,7 +25,6 @@ export default function Anime() {
                     <WhereToWatch />
                     <Gallery anime={anime} />
                     <AnimeListComments anime={anime} id={id} />
-                    {/* <AnimeComments anime={anime} id={id} /> */}
                 </div>
             )}
         </>
