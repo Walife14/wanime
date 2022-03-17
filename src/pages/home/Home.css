@@ -71,3 +71,33 @@
 .about-text {
     text-align: justify;
 }
+
+/* < 1280px */
+@media only screen and (max-width: 1280px) {
+    .about-container {
+        max-width: 920px;
+    }
+}
+
+/* < 920px */
+@media only screen and (max-width: 920px) {
+    .about-container {
+        max-width: 768px;
+    }
+}
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .anime-selector-container {
+        flex-direction: column;
+    }
+    .anime-selector-img {
+    width: 100%;
+    height: auto;
+    }
+
+    .about-container {
+        max-width: 100%;
+        margin: 25px;
+    }
+}

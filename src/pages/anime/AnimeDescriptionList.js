@@ -27,7 +27,7 @@ export default function AnimeDescriptionList() {
                             </li>
                         ))}
                     </ul>
-                    {anime.descriptions.length == 0 && (
+                    {anime.descriptions.length === 0 && (
                         <span>There are no descriptions for this anime yet!</span>
                     )}
 

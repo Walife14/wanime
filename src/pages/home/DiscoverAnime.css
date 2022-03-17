@@ -30,3 +30,26 @@
     height: 100%;
     cursor: pointer;
 }
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .discover-anime-container {
+        height: auto;
+    }
+    .discover-anime-container ul {
+        flex-direction: column;
+    }
+    .discover-anime-container ul li {
+        padding: 25px 25px;
+        box-sizing: border-box;
+    }
+    .discover-anime-container ul li:nth-child(2) {
+        transition: height 2s linear;
+    }
+    .discover-anime-container ul li:nth-child(2) img  {
+        position: relative;
+    }
+    #discover-img {
+        height: 300px;
+    }
+}

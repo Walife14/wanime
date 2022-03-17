@@ -72,3 +72,24 @@ ul, li {
 .nav-btn {
   cursor: pointer;
 }
+
+/* < 1280px */
+@media only screen and (max-width: 1280px) {
+  .separator {
+    max-width: 920px;
+  }
+}
+
+/* < 920px */
+@media only screen and (max-width: 920px) {
+  .separator {
+    max-width: 768px;
+  }
+}
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+  .separator {
+    display: none;
+  }
+}

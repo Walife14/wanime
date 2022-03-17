@@ -30,7 +30,8 @@ export default function Home() {
                     </div>
                     <span className='anime-selector-text'>
                         This Season
-                    </span>                </div>
+                    </span>
+                </div>
                 <div className='anime-selector-option'>
                     <div className='anime-selector-img-container'>
                         <img className='anime-selector-img' src={img3} alt="" />
