@@ -3,6 +3,7 @@ nav {
 }
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 10px 50px;
@@ -78,4 +79,69 @@ nav {
     height: 50px;
     width: 50px;
     border-radius: 50%;
+}
+
+/* burger icon */
+.hamburger {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+}
+.hamburger:focus {
+    outline: none;
+}
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .navbar {
+        padding: 10px 10px;
+    }
+    .login-signup {
+        display: none;
+        justify-content: space-around;
+        width: 100%;
+        padding-top: 10px;
+    }
+    .login-signup li {
+        margin: 0;
+    }
+    .login-signup li a {
+        padding: 0;
+        font-size: 20px;
+    }
+    .login-signup-link {
+        text-decoration: none;
+        padding: none;
+        border: none;
+        transition: none;
+    }
+    .login-signup.show {
+        display: flex;
+    }
+    .loggedin-nav {
+        display: none;
+        width: 100%;
+    }
+    .navbar-name-thumbnail {
+        justify-content: flex-end;
+    }
+    .loggedin-nav.show {
+        display: block;
+    }
+    .sub-navbar {
+        display: none;
+        padding: 5px 10px;
+    }
+    .sub-navbar ul {
+        flex-direction: column;
+    }
+    .sub-navbar.show {
+        display: block;
+    }
 }
