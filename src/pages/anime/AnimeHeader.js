@@ -1,6 +1,6 @@
 import AnimeHeaderInteraction from './AnimeHeaderInteraction'
 import { useAuthContext } from '../../hooks/useAuthContext'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFirestore } from '../../hooks/useFirestore'
 import { Timestamp } from 'firebase/firestore'
@@ -54,7 +54,7 @@ export default function AnimeHeader({ anime }) {
                         <>
                             <p>{anime.descriptions[0].description}</p>
                             <p>Description created {formatDistanceToNow(anime.descriptions[0].createdAt.toDate(), { addSuffix: true })} by <Link to={`/profile/${anime.descriptions[0].createdBy.uid}`}><b>{anime.descriptions[0].createdBy.displayName}</b></Link></p>
-                            <p>View All Descriptions</p>
+                            <Link to={`/anime/descriptions/${anime.id}`}>View All Descriptions</Link>
                         </>
                     )}
                     {user && (

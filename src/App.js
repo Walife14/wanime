@@ -20,11 +20,11 @@ import AnimeDirectory from './pages/anime-directory/AnimeDirectory'
 import Anime from './pages/anime/Anime'
 import SearchFriends from './pages/search-friends/SearchFriends'
 import ViewProfile from './pages/view-profile/ViewProfile'
+import LikedAnime from './pages/liked-anime/LikedAnime'
+import AnimeDescriptionList from './pages/anime/AnimeDescriptionList'
 
 // styles
 import './App.css'
-import LikedAnime from './pages/liked-anime/LikedAnime'
-
 
 function App() {
   const { mode } = useTheme()
@@ -61,6 +61,9 @@ function App() {
             </Route>
             <Route path="/this-week">
               <ThisWeek />
+            </Route>
+            <Route path="/anime/descriptions/:id">
+              <AnimeDescriptionList />
             </Route>
             <Route path="/anime/:id">
               <Anime />
