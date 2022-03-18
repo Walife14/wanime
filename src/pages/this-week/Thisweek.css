@@ -26,3 +26,26 @@
     height: 100%;
     width: 167px;
 }
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .this-week-container {
+        width: 100%;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+    .this-week-container ul {
+        justify-content: space-around;
+    }
+    .this-week-container ul li {
+        width: 33%;
+        margin-bottom: 25px;
+    }
+    .this-week-container ul li a {
+        height: auto; width: auto;
+    }
+    .this-week-container ul li a img {
+        height: auto;
+        width: 100px;
+    }
+}
