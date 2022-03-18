@@ -13,6 +13,7 @@
     margin: 5px 10px;
 }
 
+/* Add comment form */
 .anime-comment-form {
     display: flex;
     flex-direction: column;
@@ -37,4 +38,33 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .anime-comments-list {
+        margin: 0 25px;
+    }
+    .anime-comments-list li {
+        flex-wrap: wrap;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 2px;
+        box-sizing: border-box;
+    }
+    .anime-comment-remove-btn {
+        width: 100%;
+        background: none;
+    }
+
+    /* Add comment form */
+    .anime-comment-form {
+        margin: 25px 0;
+    }
+    .anime-comment-form label {
+        width: 100%;
+    }
+    .anime-comment-form label textarea {
+        width: 100%;
+    }
 }

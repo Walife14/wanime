@@ -89,7 +89,16 @@ ul, li {
 
 /* < 768px */
 @media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
   .separator {
     display: none;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  small {
+    font-size: 12px;
   }
 }

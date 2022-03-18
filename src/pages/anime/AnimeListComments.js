@@ -36,9 +36,8 @@ export default function AnimeListComments({ anime, id }) {
 
     return (
         <>
-            <h2>Comments</h2>
-
             <ul className="anime-comments-list">
+                <h2>Comments</h2>
                 {anime && anime.comments.length > 0 && anime.comments.map(comment => (
                     <li key={comment.id}>
                         <img src={comment.photoURL} alt="" />
