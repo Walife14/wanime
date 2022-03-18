@@ -99,8 +99,13 @@ nav {
     .hamburger {
         display: block;
     }
+    .brand {
+        font-size: 20px;
+        line-height: 24px;
+    }
     .navbar {
         padding: 10px 10px;
+        position: relative;
     }
     .login-signup {
         display: none;
@@ -146,6 +151,8 @@ nav {
     }
 }
 
+
+/* Navbar hamburger ALL CSS */
 .hamburger {
     position: relative;
     height: 15px;
@@ -183,6 +190,6 @@ nav {
     display: none;
 }
 .hamburger.active span:nth-child(3) {
-    right: 1px;
+    top: 7px; right: 1px;
     transform: rotate(45deg);
 }
