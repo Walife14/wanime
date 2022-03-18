@@ -14,6 +14,7 @@ export default function Navbar() {
     const loginSignup = useRef()
     const subNav = useRef()
     const loggedinNav = useRef()
+    const hamburgerIcon = useRef()
 
     const toggleNav = () => {
         if (!user) {
@@ -27,6 +28,9 @@ export default function Navbar() {
             const i = loggedinNav.current
             i.classList.toggle(styles['show'])
         }
+
+        const btn = hamburgerIcon.current
+        btn.classList.toggle(styles['active'])
     }
 
     return (
@@ -35,9 +39,11 @@ export default function Navbar() {
                 <Link to="/" className={styles.brand}>
                     <h1 className={`${styles.logo} ${styles[mode]}`}>wanime</h1>
                 </Link>
-                <button className={styles['hamburger']} id="hamburger" onClick={toggleNav}>
-                    x
-                </button>
+                <div className={styles['hamburger']} id="hamburger" onClick={toggleNav} ref={hamburgerIcon}>
+                    <span />
+                    <span />
+                    <span />
+                </div>
                 {!user &&
                     <ul className={styles['login-signup']} ref={loginSignup}>
                         <li className={styles['login-signup-item']}>
