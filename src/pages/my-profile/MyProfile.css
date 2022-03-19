@@ -107,3 +107,36 @@
 .my-profile-container div ul li a img {
     max-width: 125px;
 }
+
+/* < 768px */
+@media only screen and (max-width: 768px) {
+    .profile-container {
+        width: 100%;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+
+    /* Profile header section */
+    .profile-header {
+        height: 200px;
+    }
+    .profile-header-background {
+        height: 150px;
+    }
+    .profile-header-background img {
+        height: 100%;
+    }
+    .profile-header-content {
+        height: 100px;
+        padding: 0 10px;
+    }
+    .profile-header-content img {
+        height: 75px; width: 75px;
+    }
+    .profile-header-content div span {
+        font-size: 24px;
+    }
+    .profile-header-content li {
+        margin-left: 10px;
+    }
+}
