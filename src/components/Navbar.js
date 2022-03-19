@@ -33,6 +33,26 @@ export default function Navbar() {
         btn.classList.toggle(styles['active'])
     }
 
+    const hideNav = () => {
+        if(loginSignup.current) {
+            loginSignup.current.classList.remove(styles['show'])
+        }
+        if(subNav.current) {
+            subNav.current.classList.remove(styles['show'])
+        }
+        if(loggedinNav.current) {
+            loggedinNav.current.classList.remove(styles['show'])
+        }
+        // const x = loginSignup.current
+        // const y = subNav.current
+        // const i = loggedinNav.current
+        // console.log(x)
+        // x.classList.remove(styles['show'])
+        // y.classList.remove(styles['show'])
+        // i.classList.remove(styles['show'])
+
+    }
+
     return (
         <nav>
             <div className={`${styles.navbar} ${styles[mode]}`}>
@@ -47,17 +67,17 @@ export default function Navbar() {
                 {!user &&
                     <ul className={styles['login-signup']} ref={loginSignup}>
                         <li className={styles['login-signup-item']}>
-                            <Link className={`${styles['login-signup-link']} ${styles[mode]}`} to="/login">Login</Link>
+                            <Link className={`${styles['login-signup-link']} ${styles[mode]}`} to="/login" onClick={hideNav}>Login</Link>
                         </li>
                         <li className={styles['login-signup-item']}>
-                            <Link className={`${styles['login-signup-link']} ${styles[mode]}`} to="/signup">Signup</Link>
+                            <Link className={`${styles['login-signup-link']} ${styles[mode]}`} to="/signup" onClick={hideNav}>Signup</Link>
                         </li>
                     </ul>
                 }
                 {user &&
                     <ul className={styles['loggedin-nav']} ref={loggedinNav}>
                         <li>
-                            <NavLink className={styles['navbar-name-thumbnail']} to="/my-profile">
+                            <NavLink className={styles['navbar-name-thumbnail']} to="/my-profile" onClick={hideNav}>
                                 {user.displayName}
                                 <img
                                     src={user.photoURL}
@@ -74,13 +94,13 @@ export default function Navbar() {
                     <li>
                         <ul>
                             <li>
-                                <NavLink to="/anime-directory" activeClassName="selected-nav">
+                                <NavLink to="/anime-directory" activeClassName="selected-nav" onClick={hideNav}>
                                     Anime Directory
                                 </NavLink>
                             </li>
                             {user && (
                                 <li>
-                                    <NavLink to="/theories" activeClassName="selected-nav">
+                                    <NavLink to="/theories" activeClassName="selected-nav" onClick={hideNav}>
                                         Theories
                                     </NavLink>
                                 </li>
