@@ -97,6 +97,8 @@
     align-items: center;
 }
 .anime-page-header-interact span {
+    width: 50%;
+    text-align: center;
     font-weight: bold;
     cursor: pointer;
 }

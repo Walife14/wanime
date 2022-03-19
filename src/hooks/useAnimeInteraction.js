@@ -6,7 +6,7 @@ export const useAnimeInteraction = (uid) => {
     // user ref
     const userRef = doc(db, 'users', uid)
 
-    const likeAnime = async (id, title, thumbnail, squareThumbnail) => {
+    const likeAnime = async (id, title, thumbnail) => {
 
         let animeObj = {
             id,
@@ -20,7 +20,7 @@ export const useAnimeInteraction = (uid) => {
 
     }
 
-    const dislikeAnime = async (id, title, thumbnail, squareThumbnail) => {
+    const dislikeAnime = async (id, title, thumbnail) => {
 
         let animeObj = {
             id,
@@ -33,7 +33,7 @@ export const useAnimeInteraction = (uid) => {
         })
     }
 
-    const addToWatchlist = async (id, title, thumbnail, squareThumbnail) => {
+    const addToWatchlist = async (id, title, thumbnail) => {
         console.log("Anime added to watchlist")
 
         let animeObj = {
@@ -44,6 +44,20 @@ export const useAnimeInteraction = (uid) => {
 
         await updateDoc(userRef, {
             watchlist: arrayUnion(animeObj)
+        })
+    }
+
+    const removeFromWatchlist = async (id, title, thumbnail) => {
+        console.log("Anime removed from watchlist")
+
+        let animeObj = {
+            id,
+            title,
+            thumbnail
+        }
+
+        await updateDoc(userRef, {
+            watchlist: arrayRemove(animeObj)
         })
     }
 
@@ -58,5 +72,5 @@ export const useAnimeInteraction = (uid) => {
         
     }
     
-    return { likeAnime, dislikeAnime, addToWatchlist, removeComment }
+    return { likeAnime, dislikeAnime, addToWatchlist, removeFromWatchlist, removeComment }
 }

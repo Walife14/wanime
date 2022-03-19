@@ -163,7 +163,7 @@ nav {
     top: 0;
     display: block;
     height: 2px; width: 100%;
-    background: black;
+    background: #333;
     transition: 0.25s all linear;
 }
 .hamburger span:nth-child(2) {
@@ -171,7 +171,7 @@ nav {
     bottom: 0px;
     display: block;
     height: 2px; width: 100%;
-    background: black;
+    background: #333;
     transition: 0.25s all linear;
 }
 .hamburger span:nth-child(3) {
@@ -179,12 +179,13 @@ nav {
     top: 6.5px;
     display: block;
     height: 2px; width: 100%;
-    background: black;
+    background: #333;
     transition: 0.25s all linear;
 }
 .hamburger.active span:first-child {
     top: 7px; right: 1px;
     transform: rotate(-45deg);
+    background: #666;
 }
 .hamburger.active span:nth-child(2) {
     display: none;
@@ -192,4 +193,5 @@ nav {
 .hamburger.active span:nth-child(3) {
     top: 7px; right: 1px;
     transform: rotate(45deg);
+    background: #666;
 }
