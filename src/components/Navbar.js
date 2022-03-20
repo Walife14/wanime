@@ -43,6 +43,7 @@ export default function Navbar() {
         if(loggedinNav.current) {
             loggedinNav.current.classList.remove(styles['show'])
         }
+        hamburgerIcon.current.classList.remove(styles['active'])
         // const x = loginSignup.current
         // const y = subNav.current
         // const i = loggedinNav.current
